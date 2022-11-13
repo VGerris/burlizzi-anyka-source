@@ -21,7 +21,7 @@ static Panyka_phone_info pphoto_handle = NULL;
 
 /**
  * NAME         anyka_phone_save
- * @BRIEF	ÅÄÕÕÊý¾Ý»ñÈ¡Í¨Öªº¯Êý
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý»ï¿½È¡Í¨Öªï¿½ï¿½ï¿½ï¿½
  * @PARAM	arg
  * @RETURN	
  * @RETVAL	
@@ -34,7 +34,7 @@ void anyka_phone_save(void *parm, T_STM_STRUCT *pstream)
     video_fs_get_photo_name(pphoto_handle->path, file_name); 
     pthread_mutex_unlock(&pphoto_handle->photo_mutex);
     anyka_debug("[%s:%d] it save pic to file(%s)\n", __func__, __LINE__, file_name);
-    long fid = open(file_name, O_RDWR | O_CREAT | O_TRUNC);
+    long fid = open(file_name, O_RDWR | O_CREAT | O_TRUNC,S_IRUSR|S_IWUSR);
     if(fid <= 0)
     {
         anyka_print("[%s:%d] fails to create the pic file\n", __func__, __LINE__);
@@ -55,7 +55,7 @@ void anyka_phone_save(void *parm, T_STM_STRUCT *pstream)
 
 /**
  * NAME         anyka_phone_manage
- * @BRIEF	ÅÄÕÕÏß³Ì
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
  * @PARAM	arg
  * @RETURN	
  * @RETVAL	
@@ -98,8 +98,8 @@ void* anyka_phone_manage(void *arg)
 
 /**
  * NAME         anyka_photo_init
- * @BRIEF	Æô¶¯ÅÄÕÕÏß³Ì£¬µÈ´ýÓÃ»§ÅÄÕÕÖ¸Áî
- * @PARAM	photo_path  ÅÄÕÕµÄÂ·¾¶
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½È´ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+ * @PARAM	photo_path  ï¿½ï¿½ï¿½Õµï¿½Â·ï¿½ï¿½
  * @RETURN	
  * @RETVAL	
  */
@@ -148,12 +148,12 @@ int anyka_photo_init(char *photo_path)
 
 /**
  * NAME         anyka_photo_start
- * @BRIEF	¿ªÊ¼Æô¶¯ÅÄÕÕ
- * @PARAM	total_time   ÅÄÕÕÊ±¼ä£¬ÅÄÕÕ½«»á³ÖÐøµÄÊ±¼ä,Èç¹ûÎª-1,½«³ÖÐøÅÄÕÕ
-                    time_per_phone     ÅÄÕÕµÄ¼ä¸ôÊ±¼ä
-                    photo_path  ÅÄÕÕµÄÂ·¾¶£¬Èç¹ûÎªNULL,½«Ê¹ÓÃÉÏ´ÎÅÄÕÕµÄÂ·¾¶
-                    ppic_tell     Èç¹ûÅÄÕÕ½áÊø£¬½«Í¨ÖªÓÃ»§
-                    para           »Øµ÷º¯ÊýµÄ²ÎÊý
+ * @BRIEF	ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @PARAM	total_time   ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£¬ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½,ï¿½ï¿½ï¿½Îª-1,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    time_per_phone     ï¿½ï¿½ï¿½ÕµÄ¼ï¿½ï¿½Ê±ï¿½ï¿½
+                    photo_path  ï¿½ï¿½ï¿½Õµï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªNULL,ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Õµï¿½Â·ï¿½ï¿½
+                    ppic_tell     ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½Ã»ï¿½
+                    para           ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
  * @RETURN	
  * @RETVAL	
  */
@@ -196,7 +196,7 @@ int  anyka_photo_start(int total_time, int time_per_phone, char *photo_path, any
 
 /**
  * NAME         anyka_photo_stop
- * @BRIEF	ÌáÇ°½áÊøÖ®Ç°Æô¶¯µÄÅÄÕÕ
+ * @BRIEF	ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	

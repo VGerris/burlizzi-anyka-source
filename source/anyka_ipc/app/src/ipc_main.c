@@ -19,7 +19,7 @@
 
 #define AK_VERSION_SOFTWARE             "V1.0.13" 
 
-#define SYS_START 						"/usr/share/anyka_camera_start.mp3"		//ÏµÍ³Æô¶¯ÌáÊ¾Òô
+#define SYS_START 						"/usr/share/anyka_camera_start.mp3"		//ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
 #define SYS_START_ONE_TIMES_FLAG		"/tmp/ak_sys_start_flag"
 #define SD_STATUS						"/tmp/sd_status"
 #define VOICE_WORD						"/tmp/ipc_rec/"
@@ -46,7 +46,7 @@ unsigned int ak_version_manage()
 
 /**
 * @brief 	 ipc_exit_app
-* 			appÍË³öÊ±µÄÏµÍ³´¦Àí
+* 			appï¿½Ë³ï¿½Ê±ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½
 * @date 	2015/3
 * @param:	void
 * @return 	void
@@ -63,7 +63,7 @@ void ipc_exit_app()
 
 /**
 * @brief 	 anyka_init_hardware
-* 			Ó²¼þ³õÊ¼»¯
+* 			Ó²ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
 * @date 	2015/3
 * @param:	void
 * @return 	void
@@ -71,8 +71,8 @@ void ipc_exit_app()
 */
 
 /********************************************
-´Ë´¦½«³õÊ¼»¯ËùÓÐÓ²¼þÏà¹ØµÄÉè±¸
-°üÀ¨Âí´ï,CAMERA,ÒôÆµÖ®ÀàµÄ
+ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½è±¸
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,CAMERA,ï¿½ï¿½ÆµÖ®ï¿½ï¿½ï¿½
 *********************************************/
 void anyka_init_hardware(void)
 {
@@ -97,7 +97,7 @@ void anyka_init_hardware(void)
 
 /**
 * @brief 	 anyka_init_software
-* 			Èí¼þ³õÊ¼»¯
+* 			ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
 * @date 	2015/3
 * @param:	void
 * @return 	void
@@ -105,8 +105,8 @@ void anyka_init_hardware(void)
 */
 
 /*************************************************
-´Ë´¦×öÒ»Ð©±ØÒªµÄ³õÊ¼»¯Èí¼þÉèÖÃ,
-Ä¿Ç°Éè±¸½âÂë¿âÏà¹ØµÄ³õÊ¼»¯·ÅÔÚÏàÓ¦µÄÏûÏ¢ÀïÃæ.
+ï¿½Ë´ï¿½ï¿½ï¿½Ò»Ð©ï¿½ï¿½Òªï¿½Ä³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+Ä¿Ç°ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ØµÄ³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½.
 **************************************************/
 void anyka_init_software(void)
 {
@@ -124,11 +124,11 @@ void anyka_init_software(void)
 
 /**
 * @brief 	anyka_get_verion
-* 			»ñÈ¡Èí¼þ°æ±¾
+* 			ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾
 * @date 	2015/3
 * @param:	void
 * @return 	char *
-* @retval 	Ö¸Ïòµ±Ç°Èí¼þ°æ±¾×Ö·û´®Ö¸Õë
+* @retval 	Ö¸ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Ö·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 */
 
 char* anyka_get_verion(void)
@@ -139,9 +139,9 @@ char* anyka_get_verion(void)
 
 /**
 * @brief 	sigprocess
-* 			×Ô¶¨ÒåÓÃ»§ÐÅºÅ´¦Àí£¬½ÓÊÕµ½Òì³£ÐÅºÅºó½øÈë´Ë½Ó¿Ú
+* 			ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ÅºÅ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ì³£ï¿½ÅºÅºï¿½ï¿½ï¿½ï¿½Ë½Ó¿ï¿½
 * @date 	2015/3
-* @param:	int sig£¬ÐÅºÅÖµ
+* @param:	int sigï¿½ï¿½ï¿½Åºï¿½Öµ
 * @return 	void
 * @retval 	
 */
@@ -178,9 +178,9 @@ static void sigprocess(int sig)
 
 /**
 * @brief 	user_sig_handler
-* 			×Ô¶¨ÒåÓÃ»§ÐÅºÅ´¦Àí£¬½ÓÊÕµ½ÐÅºÅÊ±½øÈë´Ë½Ó¿Ú
+* 			ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ÅºÅ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½Åºï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ë½Ó¿ï¿½
 * @date 	2015/3
-* @param:	int sig£¬ÐÅºÅÖµ
+* @param:	int sigï¿½ï¿½ï¿½Åºï¿½Öµ
 * @return 	void
 * @retval 	
 */
@@ -284,7 +284,7 @@ static void user_sig_handler(int sig)
 
 /**
 * @brief 	sig_register
-* 			ÐÅºÅ´¦Àí×¢²áº¯Êý
+* 			ï¿½ÅºÅ´ï¿½ï¿½ï¿½×¢ï¿½áº¯ï¿½ï¿½
 * @date 	2015/3
 * @param:	void
 * @return 	int
@@ -308,7 +308,7 @@ static int sig_register(void)
 
 /**
 * @brief 	 main
-* 			Ö÷Ó¦ÓÃÈë¿Ú
+* 			ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½
 * @date 	2015/3
 * @param:	void
 * @return 	int
@@ -317,6 +317,8 @@ static int sig_register(void)
 
 int main(void)
 {
+	printf("ciau\n");
+	return 1;
     Psystem_cloud_set_info sys_setting;
 	system_user_info * set_info;
 
@@ -397,6 +399,6 @@ int main(void)
     /** all application is dealwith in this func **/
     video_record_main_loop();
     
-    //Ö÷Ñ­»·´¦Àí¼Æ»®Â¼Ïñ¹¦ÄÜ
+    //ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ»ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
     return 0;
 }

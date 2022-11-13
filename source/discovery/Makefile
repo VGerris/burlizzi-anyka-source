@@ -1,5 +1,5 @@
 
-CROSS_COMPILE=arm-none-linux-gnueabi-
+CROSS_COMPILE=arm-linux-gnueabi-
 CC=$(CROSS_COMPILE)gcc
 CPP=$(CC) -E
 LD=$(CROSS_COMPILE)ld

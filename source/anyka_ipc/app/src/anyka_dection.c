@@ -1,8 +1,8 @@
 /*******************************************************************
-´ËÎÄ¼þÍê³ÉÕì²âÏà¹Ø¹¦ÄÜ£¬Ä¿Ç°Ö»Ö§³ÖÒÆ¶¯ÓëÉùÒôÕì²â¡£
-ÒÆ¶¯Õì²â»áÆô¶¯Õì²âÂ¼Ïñ¹¦ÄÜ£¬³ÖÐøÒÆ¶¯»á½øÐÐÂ¼ÏñÎÄ¼þ·Ö¸î¡£ÔÚÎÞÒÆ¶¯Ò»·ÖÖÓºó»á½áÊøÕì²âÂ¼Ïñ¡£
-Æô¶¯Â¼Ïñ±£´æÎÄ¼þµÄ¹æÔòÊÇ´Ó·¢ÏÖÇ°VIDEO_CHECK_MOVE_IFRAMES¸öIÖ¡¿ªÊ¼£¬µ½Ã»ÓÐÕì²âµ½ºóµÄVIDEO_CHECK_MOVE_OVER_TIME
-Ê±¼äµÄÕû¸öÇø¼ä¡£
+ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½Ü£ï¿½Ä¿Ç°Ö»Ö§ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â¡£
+ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ö¸î¡£ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½Ò»ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ñ±£´ï¿½ï¿½Ä¼ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½Ç´Ó·ï¿½ï¿½ï¿½Ç°VIDEO_CHECK_MOVE_IFRAMESï¿½ï¿½IÖ¡ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½âµ½ï¿½ï¿½ï¿½VIDEO_CHECK_MOVE_OVER_TIME
+Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä¡£
 *******************************************************************/
 
 #include "common.h"
@@ -10,16 +10,16 @@
 #include "record_replay.h"
 
 #define VIDEO_CHECK_MOVE_IFRAMES 		2
-#define MAX_ALARM_FILE_NAME_LEN        	100         //×î´óµÄÂ¼ÏñÎÄ¼þÃû
+#define MAX_ALARM_FILE_NAME_LEN        	100         //ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 
 
 #define ALARM_TMP_FILE_NAME 		"/mnt/tmp/"
 #define AKGPIO_DEV 					"/dev/akgpio"
 #define ALARM_TMP_PHOTO_DIR     	"/tmp/alarm/"
-#define MIN_DISK_SIZE_FOR_ALARM		(200*1024)  //´ÅÅÌµÄ±£Áô¿Õ¼ä£¬µ¥Î»ÊÇKB
+#define MIN_DISK_SIZE_FOR_ALARM		(200*1024)  //ï¿½ï¿½ï¿½ÌµÄ±ï¿½ï¿½ï¿½ï¿½Õ¼ä£¬ï¿½ï¿½Î»ï¿½ï¿½KB
 
 
-/** Á½×éÂ¼ÏñÎÄ¼þÐÅÏ¢£¬Ò»×éÁÙÊ±ÎÄ¼þ£¬Ò»×é×îÖÕ±£´æµÄÎÄ¼þ**/
+/** ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä¼ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Õ±ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½**/
 const char * alarm_record_tmp_file_name[] = 
 {
 	"/mnt/tmp/alarm_record_file_1",
@@ -32,14 +32,14 @@ const char * alarm_rec_tmp_index[] =
 	"/mnt/tmp/alarm_record_index_2"
 };
 
-/** Â¼ÏñÐÅÏ¢½á¹¹Ìå **/
+/** Â¼ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½á¹¹ï¿½ï¿½ **/
 typedef struct _alarm_record_info
 {
 	uint32  file_size;	
 	char    *file_name;
 }alarm_record_info;
 
-/** Â¼ÏñÎÄ¼þË÷Òý½á¹¹Ìå**/
+/** Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½**/
 typedef struct alarm_record_file
 {
 	int index_fd;
@@ -48,35 +48,35 @@ typedef struct alarm_record_file
 
 typedef struct _video_check_move_ctrl
 {
-    uint8   run_flag;	//Õì²âÂ¼ÏñÔËÐÐ±êÖ¾
-    uint8   check_flag;	//Õì²âºóµÄ´¦Àí±êÖ¾£¬0±íÊ¾²»×ö´¦Àí
-    uint8   check_type;	//Õì²âÀàÐÍ
-    uint8   save_record_flag;	//ÊÇ·ñ±£´æÎÄ¼þ±êÖ¾
-    uint8   iframe_num;	// key Ö¡( I Ö¡)ÊýÁ¿
-    uint8   move_ok;	//ÊÇ·ñ´¦ÔÚÒÆ¶¯×´Ì¬£¬0±íÊ¾Î´ÒÆ¶¯
-    uint8   alarm_type;	//±¨¾¯ÀàÐÍ
-	uint8   rec_used_index;	//Â¼ÏñÊ¹ÓÃµÄ½ÚµãË÷Òý
-	uint8   rec_save_index;	//±£´æÂ¼ÏñÊ¹ÓÃµÄ½ÚµãË÷Òý
-    uint32  move_time;	//¼ì²âµ½Òì³£µÄÆðÊ¼Ê±¼ä
-    uint32  cur_time;	//µ±Ç°Ê±¼ä
-	uint32  alarm_record_total_size;	//×ÜµÄÒÆ¶¯Õì²âÂ¼ÏñÎÄ¼þÕ¼ÓÃµÄ¿Õ¼ä´óÐ¡	
-	uint32  used_alarm_record_size;		//µ±Ç°ÏµÍ³ÒÑÕ¼ÓÃµÄÒÆ¶¯Õì²âÂ¼ÏñÎÄ¼þ´óÐ¡
-    uint16  video_level;		//ÊÓÆµµÈ¼¶
-    uint16  audio_level;		//ÒôÆµµÈ¼¶
-    void    *video_queue;		//ÊÓÆµÊý¾Ý¶ÓÁÐ
-    void    *audio_queue;		//ÒôÆµÊý¾Ý¶ÓÁÐ
-	void 	*record_queue;		//Â¼ÏñÎÄ¼þ¶ÓÁÐ
-	void 	*mux_handle;		//ºÏ³É¿âºÏ³É¾ä±ú
-	void 	*save_mux_handle;	//±£´æÂ¼ÏñÓÃµÄºÏ³É¿â¾ä±ú
+    uint8   run_flag;	//ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½Ö¾
+    uint8   check_flag;	//ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½0ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    uint8   check_type;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    uint8   save_record_flag;	//ï¿½Ç·ñ±£´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ö¾
+    uint8   iframe_num;	// key Ö¡( I Ö¡)ï¿½ï¿½ï¿½ï¿½
+    uint8   move_ok;	//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½×´Ì¬ï¿½ï¿½0ï¿½ï¿½Ê¾Î´ï¿½Æ¶ï¿½
+    uint8   alarm_type;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	uint8   rec_used_index;	//Â¼ï¿½ï¿½Ê¹ï¿½ÃµÄ½Úµï¿½ï¿½ï¿½ï¿½ï¿½
+	uint8   rec_save_index;	//ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê¹ï¿½ÃµÄ½Úµï¿½ï¿½ï¿½ï¿½ï¿½
+    uint32  move_time;	//ï¿½ï¿½âµ½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½Ê¼Ê±ï¿½ï¿½
+    uint32  cur_time;	//ï¿½ï¿½Ç°Ê±ï¿½ï¿½
+	uint32  alarm_record_total_size;	//ï¿½Üµï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½Õ¼ï¿½ÃµÄ¿Õ¼ï¿½ï¿½Ð¡	
+	uint32  used_alarm_record_size;		//ï¿½ï¿½Ç°ÏµÍ³ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
+    uint16  video_level;		//ï¿½ï¿½Æµï¿½È¼ï¿½
+    uint16  audio_level;		//ï¿½ï¿½Æµï¿½È¼ï¿½
+    void    *video_queue;		//ï¿½ï¿½Æµï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½
+    void    *audio_queue;		//ï¿½ï¿½Æµï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½
+	void 	*record_queue;		//Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	void 	*mux_handle;		//ï¿½Ï³É¿ï¿½Ï³É¾ï¿½ï¿½
+	void 	*save_mux_handle;	//ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ÃµÄºÏ³É¿ï¿½ï¿½ï¿½
     PA_HTHREAD  id;			
     PA_HTHREAD  save_file_id;
-    pthread_mutex_t     move_mutex;	//±¾Ä£¿éÏß³ÌËø
-    sem_t   save_sem;		//Õì²âµ½ÒÆ¶¯Ê±Å×µÄÐÅºÅ
-    sem_t   data_sem;		//»ñÈ¡µ½ÒôÊÓÆµÊý¾ÝºóÅ×µÄÐÅºÅ
-	sem_t   manage_sem;		//µ¥¸öÎÄ¼þÂ¼ÖÆÊ±¼äµ½µÄÐÅºÅ
-	char 	alarm_record_file_name[2][MAX_ALARM_FILE_NAME_LEN];		//Â¼ÏñÎÄ¼þÃûÊý×é
-	alarm_record_file 	record_file[2];		//Â¼Ïñ½ÚµãÐÅÏ¢Êý×é
-    PANYKA_SEND_ALARM_FUNC *Palarm_func;	//ÓÃ»§»Øµ÷
+    pthread_mutex_t     move_mutex;	//ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½
+    sem_t   save_sem;		//ï¿½ï¿½âµ½ï¿½Æ¶ï¿½Ê±ï¿½×µï¿½ï¿½Åºï¿½
+    sem_t   data_sem;		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ýºï¿½ï¿½×µï¿½ï¿½Åºï¿½
+	sem_t   manage_sem;		//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â¼ï¿½ï¿½Ê±ï¿½äµ½ï¿½ï¿½ï¿½Åºï¿½
+	char 	alarm_record_file_name[2][MAX_ALARM_FILE_NAME_LEN];		//Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	alarm_record_file 	record_file[2];		//Â¼ï¿½ï¿½Úµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+    PANYKA_SEND_ALARM_FUNC *Palarm_func;	//ï¿½Ã»ï¿½ï¿½Øµï¿½
     PANYKA_FILTER_VIDEO_CHECK_FUNC *filter_check;
 }video_check_move_ctrl, *Pvideo_check_move_ctrl;
 
@@ -85,9 +85,9 @@ int anyka_dection_pass_video_check();
 
 /**
  * NAME         anyka_detection_wait_irq
- * @BRIEF	µÈ´ýGPIOÖÐ¶Ïµ½À´
- * @PARAM	int fd£¬´ò¿ªµÄÉè±¸¾ä±ú
- 			struct gpio_info gpio£¬gpio½á¹¹ÐÅÏ¢
+ * @BRIEF	ï¿½È´ï¿½GPIOï¿½Ð¶Ïµï¿½ï¿½ï¿½
+ * @PARAM	int fdï¿½ï¿½ï¿½ò¿ªµï¿½ï¿½è±¸ï¿½ï¿½ï¿½
+ 			struct gpio_info gpioï¿½ï¿½gpioï¿½á¹¹ï¿½ï¿½Ï¢
  * @RETURN	void
  * @RETVAL	
  */
@@ -121,9 +121,9 @@ static int anyka_detection_wait_irq(int fd, struct gpio_info gpio)
 
 /**
  * NAME         anyka_dection_send_alarm_info
- * @BRIEF	·¢ËÍ¾¯¸æÐÅÏ¢µÄcallback
- * @PARAM	void *para£¬Òª·¢ËÍµÄ²ÎÊý
- 			char *file_name£¬·¢ËÍÕì²âÍ¼Æ¬µÄÎÄ¼þÃû
+ * @BRIEF	ï¿½ï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½callback
+ * @PARAM	void *paraï¿½ï¿½Òªï¿½ï¿½ï¿½ÍµÄ²ï¿½ï¿½ï¿½
+ 			char *file_nameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
  * @RETURN	void
  * @RETVAL	
  */
@@ -139,7 +139,7 @@ void anyka_dection_send_alarm_info(void *para, char *file_name)
 
 /**
  * NAME         anyka_dection_alarm
- * @BRIEF	ÆäËûÀàÐÍÕì²âµÄ±¨¾¯£¬Ä¿Ç°ÊÇGPIOÕì²â
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½GPIOï¿½ï¿½ï¿½
  * @PARAM	void
  * @RETURN	NULL
  * @RETVAL	
@@ -228,8 +228,8 @@ static void *anyka_dection_alarm(void)
 
 /**
  * NAME         anyka_dection_video_move_queue_free
- * @BRIEF	ÊÍ·ÅÖ¸¶¨½ÚµãµÄ×ÊÔ´
- * @PARAM	void *item £¬Ö¸¶¨ÒªÊÍ·Å×ÊÔ´µÄ½Úµã
+ * @BRIEF	ï¿½Í·ï¿½Ö¸ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ô´
+ * @PARAM	void *item ï¿½ï¿½Ö¸ï¿½ï¿½Òªï¿½Í·ï¿½ï¿½ï¿½Ô´ï¿½Ä½Úµï¿½
                    
  * @RETURN	void
  * @RETVAL	
@@ -249,11 +249,11 @@ void anyka_dection_video_move_queue_free(void *item)
 
 /**
  * NAME         anyka_dection_video_move_queue_copy
- * @BRIEF	½«²ÎÊýËùÖ¸µÄ½ÚµãÊý¾Ýcopyµ½Ò»¸öÐÂµÄ½Úµã
- * @PARAM	T_STM_STRUCT *pstream£¬ ´ýcopyµÄÊý¾Ý
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½Ä½Úµï¿½ï¿½ï¿½ï¿½ï¿½copyï¿½ï¿½Ò»ï¿½ï¿½ï¿½ÂµÄ½Úµï¿½
+ * @PARAM	T_STM_STRUCT *pstreamï¿½ï¿½ ï¿½ï¿½copyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                    
  * @RETURN	T_STM_STRUCT *
- * @RETVAL	³É¹¦·µ»ØÐÂµÄÊý¾Ý½ÚµãÖ¸Õë£¬Ê§°Ü·µ»Ø¿Õ
+ * @RETVAL	ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½Ý½Úµï¿½Ö¸ï¿½ë£¬Ê§ï¿½Ü·ï¿½ï¿½Ø¿ï¿½
  */
 
 T_STM_STRUCT * anyka_dection_video_move_queue_copy(T_STM_STRUCT *pstream)
@@ -278,10 +278,10 @@ T_STM_STRUCT * anyka_dection_video_move_queue_copy(T_STM_STRUCT *pstream)
 
 /**
  * NAME         anyka_dection_move_video_data
- * @BRIEF	ÊÓÆµ»Øµ÷º¯Êý,Ä¿Ç°ÏµÍ³Ö»±£´æÁ½¸öIÖ¡µÄÊý¾Ý£¬ËùÒÔ³¬¹ý
-                    ½«Ö®Ç°µÄÊÓÆµÊý¾ÝÉ¾³ý¡£
- * @PARAM	param ÓÃ»§Êý¾Ý
-                    pstream ÒôÆµÏà¹ØÊý¾Ý
+ * @BRIEF	ï¿½ï¿½Æµï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½,Ä¿Ç°ÏµÍ³Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IÖ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½
+                    ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½
+ * @PARAM	param ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+                    pstream ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @RETURN	void *
  * @RETVAL	
  */
@@ -306,8 +306,8 @@ void anyka_dection_move_video_data(T_VOID *param, T_STM_STRUCT *pstream)
         pvideo_move_ctrl->iframe_num ++;
         if(pvideo_move_ctrl->move_ok == 0)
         {
-            //ÎÒÃÇ½«Çå³ý²¿·ÖÒôÆµÓëÊÓÆµÊý¾Ý£¬ÊÓÆµÊý¾ÝÖ»±£´æÁ½¸ö
-            //I,ÒôÆµ½«ÓëÊÓÆµ×îºóÒ»¸öÖ¡µÄÊ±¼ä½øÐÐÍ¬²½¡£
+            //ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //I,ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö¡ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
             last_time_stamp = 0xFFFFFFFF;
             while(pvideo_move_ctrl->iframe_num > VIDEO_CHECK_MOVE_IFRAMES)
             {
@@ -343,7 +343,7 @@ void anyka_dection_move_video_data(T_VOID *param, T_STM_STRUCT *pstream)
                 }
                 anyka_dection_video_move_queue_free((void *)new_stream);
             }
-            //Çå³ýÒôÆµÊý¾Ý£¬Óë×îºóÒ»¸ö±»Çå³ýµÄÊÓÆµÊý¾ÝµÄÊ±¼äÎª×¼
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ýµï¿½Ê±ï¿½ï¿½Îª×¼
             if(last_time_stamp != 0xFFFFFFFF)
             {
                 while(anyka_queue_not_empty(pvideo_move_ctrl->audio_queue))
@@ -367,7 +367,7 @@ void anyka_dection_move_video_data(T_VOID *param, T_STM_STRUCT *pstream)
     }
     if(new_stream)
     {
-        //Èç¹û¶ÓÁÐÂú£¬½«µÈ´ý¿Õ¼äÊÍ·ÅÔÙÐ´Êý¾Ý
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½Õ¼ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
         try_time = 0;
         while(anyka_queue_is_full(pvideo_move_ctrl->video_queue) && try_time < 10)
         {
@@ -394,9 +394,9 @@ void anyka_dection_move_video_data(T_VOID *param, T_STM_STRUCT *pstream)
 
 /**
  * NAME         anyka_dection_video_move_audio_data
- * @BRIEF	ÒôÆµ»Øµ÷º¯Êý
- * @PARAM	param ÓÃ»§Êý¾Ý
-                    pstream ÒôÆµÏà¹ØÊý¾Ý
+ * @BRIEF	ï¿½ï¿½Æµï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+ * @PARAM	param ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+                    pstream ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @RETURN	void *
  * @RETVAL	
  */
@@ -430,8 +430,8 @@ void anyka_dection_video_move_audio_data(T_VOID *param, T_STM_STRUCT *pstream)
 
 /**
  * NAME         anyka_dection_video_notice_dowith
- * @BRIEF	¼ì²éµ½ÒÆ¶¯Ê±µÄ»Øµ÷
- * @PARAM	user ÓÃ»§Êý¾Ý
+ * @BRIEF	ï¿½ï¿½éµ½ï¿½Æ¶ï¿½Ê±ï¿½Ä»Øµï¿½
+ * @PARAM	user ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
                     notice
  
  * @RETURN	void *
@@ -440,7 +440,7 @@ void anyka_dection_video_move_audio_data(T_VOID *param, T_STM_STRUCT *pstream)
 
 void anyka_dection_video_notice_dowith(void *user, uint8 notice)
 {
-    //Èç¹ûÊ×´ÎÒÆ¶¯£¬½«Çå³ý²¿·ÖÒÔÇ°µÄÊý¾Ý¡£
+    //ï¿½ï¿½ï¿½ï¿½×´ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
     Psystem_alarm_set_info alarm_info = anyka_sys_alarm_info();
     static int send_alarm_time;
 
@@ -490,11 +490,11 @@ void anyka_dection_video_notice_dowith(void *user, uint8 notice)
 
 /**
  * NAME         anyka_dection_remove_tmp_file
- * @BRIEF	É¾³ýÂ¼ÏñÊ¹ÓÃµÄÁÙÊ±ÎÄ¼þ
- * @PARAM	char *rec_path£¬²éÕÒÎÄ¼þÂ·¾¶
- 			video_find_record_callback *pcallback£¬ ÕÒµ½ÎÄ¼þÖ®ºóÓÃÓÚÅÅÐòµÄcallback
- * @RETURN	uint64£¬·µ»Ø·ûºÏÀàÐÍµÄÎÄ¼þµÄ×ÜµÄsize
- * @RETVAL	³É¹¦·µ»Ø·ûºÏÎÄ¼þÀàÐÍµÄ×Ö½Ú´óÐ¡£¬Ê§°Ü·µ»Ø-1.
+ * @BRIEF	É¾ï¿½ï¿½Â¼ï¿½ï¿½Ê¹ï¿½Ãµï¿½ï¿½ï¿½Ê±ï¿½Ä¼ï¿½
+ * @PARAM	char *rec_pathï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½
+ 			video_find_record_callback *pcallbackï¿½ï¿½ ï¿½Òµï¿½ï¿½Ä¼ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½callback
+ * @RETURN	uint64ï¿½ï¿½ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Üµï¿½size
+ * @RETVAL	ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½Ö½Ú´ï¿½Ð¡ï¿½ï¿½Ê§ï¿½Ü·ï¿½ï¿½ï¿½-1.
  */
 
 void anyka_dection_remove_tmp_file()
@@ -509,8 +509,8 @@ void anyka_dection_remove_tmp_file()
 
 /**
  * NAME         anyka_dection_flush_record_file
- * @BRIEF	Â¼ÏñÍê³Éºó¹Ø±ÕÁÙÊ±ÎÄ¼þ£¬¹Ø±ÕÂ¼ÏñÎÄ¼þ
- * @PARAM	int index£¬0 »ò1£¬Á½×éÎÄ¼þÇÐ»»Ê¹ÓÃ
+ * @BRIEF	Â¼ï¿½ï¿½ï¿½ï¿½Éºï¿½Ø±ï¿½ï¿½ï¿½Ê±ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ø±ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½
+ * @PARAM	int indexï¿½ï¿½0 ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð»ï¿½Ê¹ï¿½ï¿½
  * @RETURN	void
  * @RETVAL	
  */
@@ -541,7 +541,7 @@ void anyka_dection_flush_record_file(int index)
 
 		/** get record file information **/
         stat(pvideo_move_ctrl->alarm_record_file_name[index], &statbuf );
-        cur_file_size = (statbuf.st_size >> 10) + ((statbuf.st_size & 1023)?1:0);            //¸üÐÂÎÄ¼þ´óÐ¡ÏµÍ³µ½¶ÓÁÐ.
+        cur_file_size = (statbuf.st_size >> 10) + ((statbuf.st_size & 1023)?1:0);            //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
         /** file size less than 100k, delete it **/
         if(cur_file_size < 100)
         {
@@ -572,7 +572,7 @@ int anyka_dection_creat_new_record_file(int index)
 	char res[1000] = {0};
 
 	pvideo_move_ctrl->record_file[index].record_fd = 
-			open(alarm_record_tmp_file_name[index], O_RDWR| O_CREAT | O_TRUNC);
+			open(alarm_record_tmp_file_name[index], O_RDWR| O_CREAT | O_TRUNC,S_IRUSR|S_IWUSR);
 	if(pvideo_move_ctrl->record_file[index].record_fd < 0)
 	{
 
@@ -604,7 +604,7 @@ int anyka_dection_creat_new_record_file(int index)
 		
 	}
 
-	pvideo_move_ctrl->record_file[index].index_fd = open(alarm_rec_tmp_index[index], O_RDWR| O_CREAT | O_TRUNC);
+	pvideo_move_ctrl->record_file[index].index_fd = open(alarm_rec_tmp_index[index], O_RDWR| O_CREAT | O_TRUNC,S_IRUSR|S_IWUSR);
 	if(pvideo_move_ctrl->record_file[index].index_fd < 0)
 	{
 		anyka_print("[%s:%d] open file %s failed, :%s\n", __func__, __LINE__, 
@@ -620,8 +620,8 @@ int anyka_dection_creat_new_record_file(int index)
 
 /**
  * NAME         anyka_dection_free_file_queue
- * @BRIEF	ÊÍ·Å¶ÓÁÐ³ÉÔ±×ÊÔ´
- * @PARAM	void *item£¬ÒªÊÍ·ÅµÄ×ÊÔ´½Úµã
+ * @BRIEF	ï¿½Í·Å¶ï¿½ï¿½Ð³ï¿½Ô±ï¿½ï¿½Ô´
+ * @PARAM	void *itemï¿½ï¿½Òªï¿½Í·Åµï¿½ï¿½ï¿½Ô´ï¿½Úµï¿½
  * @RETURN	void
  * @RETVAL	
  */
@@ -639,11 +639,11 @@ void anyka_dection_free_file_queue(void *item)
 
 /**
  * NAME         anyka_dection_malloc_file_queue
- * @BRIEF	·ÖÅä¶ÓÁÐ½ÚµãµÄÊý¾ÝÄÚ´æ
- * @PARAM	int file_size£¬ Òª·ÖÅäµÄÎÄ¼þ³¤¶È
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+ * @PARAM	int file_sizeï¿½ï¿½ Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
  * @RETURN	alarm_record_info *
- * @RETVAL	³É¹¦: ·µ»ØÖ¸Ïò¶ÓÁÐÊý¾Ý½ÚµãµÄÖ¸Õë
- 			Ê§°Ü: ·µ»Ø¿Õ
+ * @RETVAL	ï¿½É¹ï¿½: ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½Úµï¿½ï¿½Ö¸ï¿½ï¿½
+ 			Ê§ï¿½ï¿½: ï¿½ï¿½ï¿½Ø¿ï¿½
  */
 
 alarm_record_info *anyka_dection_malloc_file_queue(int file_len)
@@ -665,9 +665,9 @@ alarm_record_info *anyka_dection_malloc_file_queue(int file_len)
 
 /**
  * NAME         anyka_dection_insert_file
- * @BRIEF	½«ÎÄ¼þ²åÈëµ½Ö¸¶¨µÄ¶ÓÁÐÖÐ
- * @PARAM	char *file_name£¬ Òª²åÈëµÄÎÄ¼þÃû
- 			int file_size£¬ ÒªÒªÈëµÄÎÄ¼þµÄ´óÐ¡
+ * @BRIEF	ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ëµ½Ö¸ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @PARAM	char *file_nameï¿½ï¿½ Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+ 			int file_sizeï¿½ï¿½ ÒªÒªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä´ï¿½Ð¡
  * @RETURN	void
  * @RETVAL	
  */
@@ -979,7 +979,7 @@ void *anyka_dection_record_handler(void *user)
         
     while(pvideo_move_ctrl->run_flag)
     {
-        sem_wait(&pvideo_move_ctrl->save_sem); //µÈ´ýÕì²âÐÅºÅ²ÅÆô¶¯Â¼Ïñ
+        sem_wait(&pvideo_move_ctrl->save_sem); //ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ÅºÅ²ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
         
         cur_time = pvideo_move_ctrl->cur_time;
         send_alarm_time = 0;
@@ -990,20 +990,20 @@ void *anyka_dection_record_handler(void *user)
             continue;
         }
 
-#ifdef STOP_DECT_RECORD   //Ö§³ÖÔÝÍ£Õì²âÂ¼Ïñ
+#ifdef STOP_DECT_RECORD   //Ö§ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
         if (pvideo_move_ctrl->check_flag == 0)
             continue;
 #endif        
 		anyka_print("[%s:%d] move start time: %u, record time: %d, current time: %d\n", 
 				 __func__, __LINE__, pvideo_move_ctrl->move_time , alarm_info->alarm_record_time, cur_time);
 		
-#ifdef STOP_DECT_RECORD   //Ö§³ÖÔÝÍ£Õì²âÂ¼Ïñ
+#ifdef STOP_DECT_RECORD   //Ö§ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
 		while(pvideo_move_ctrl->run_flag && pvideo_move_ctrl->check_flag)
 #else		
 		while(pvideo_move_ctrl->run_flag)
 #endif
 		{
-	        sem_wait(&pvideo_move_ctrl->data_sem); //µÈ´ýÒôÊÓÆµÂëÁ÷Êý¾Ýµ½À´Íê³ÉmuxerºÏ³É
+	        sem_wait(&pvideo_move_ctrl->data_sem); //ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½muxerï¿½Ï³ï¿½
 
 			/*
 			** The distance from the most recent to detect anomaly time, 
@@ -1038,7 +1038,7 @@ void *anyka_dection_record_handler(void *user)
                     }
                 }   
                 #endif
-	            if (sd_get_status() == 0) { //T¿¨°Î³ö 
+	            if (sd_get_status() == 0) { //Tï¿½ï¿½ï¿½Î³ï¿½ 
                     if (sd_ok == 1) {
 	                    sd_ok = 0;
 						anyka_dection_free_record_info();
@@ -1046,7 +1046,7 @@ void *anyka_dection_record_handler(void *user)
                         pvideo_move_ctrl->mux_handle =  NULL;
                         sem_post(&pvideo_move_ctrl->manage_sem);
                     }
-	            } else {		//T¿¨²åÈë 
+	            } else {		//Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
                     if (sd_ok == 0)
                     {
                         if(anyka_dection_start_save_file() < 0){
@@ -1058,7 +1058,7 @@ void *anyka_dection_record_handler(void *user)
 
 	            pvideo_stream = (T_STM_STRUCT *)anyka_queue_pop(pvideo_move_ctrl->video_queue);
 	            if(pvideo_stream) {
-    				/**** Õì²âÂ¼ÏñÊ±³¤¸ù¾ÝIÖ¡µÄÊ±¼ä´ÁÀ´½øÐÐ·Ö¸î£¬´ïµ½alarm_record_time¾Í½øÐÐ·Ö¸î ****/
+    				/**** ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IÖ¡ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·Ö¸î£¬ï¿½ïµ½alarm_record_timeï¿½Í½ï¿½ï¿½Ð·Ö¸ï¿½ ****/
                     if(pvideo_stream->iFrame)
                     {
                         cur_time = pvideo_stream->timestamp / 1000;
@@ -1117,17 +1117,17 @@ void *anyka_dection_record_handler(void *user)
         }
 
         /*
-            ´Ë´¦±ØÐëÅÐ¶Ïµ±Ç°ÓÐÃ»ÓÐÔÚ×öÇ°Ò»´Î·Ö¸îÎÄ¼þµÄ±£´æ¶¯×÷£¬
-            ÐèÒªµÈµ½Ç°Ò»´Î·Ö¸îÎÄ¼þ±£´æÍê³É(¼´save_mux_handle±äÎª¿Õ)£¬ÔÙ×öµ±Ç°Â¼ÏñµÄ±£´æ¶¯×÷¡£
+            ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ïµï¿½Ç°ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°Ò»ï¿½Î·Ö¸ï¿½ï¿½Ä¼ï¿½ï¿½Ä±ï¿½ï¿½æ¶¯ï¿½ï¿½ï¿½ï¿½
+            ï¿½ï¿½Òªï¿½Èµï¿½Ç°Ò»ï¿½Î·Ö¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½save_mux_handleï¿½ï¿½Îªï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°Â¼ï¿½ï¿½Ä±ï¿½ï¿½æ¶¯ï¿½ï¿½ï¿½ï¿½
         */
         while (pvideo_move_ctrl->save_mux_handle != NULL)
             usleep(100*1000);
 
-        //Õì²â¹ý³Ì½áÊø£¬±£´æµ±Ç°Â¼ÖÆµÄÎÄ¼þ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æµ±Ç°Â¼ï¿½Æµï¿½ï¿½Ä¼ï¿½
         pvideo_move_ctrl->move_ok = 0;
         pvideo_move_ctrl->rec_save_index = pvideo_move_ctrl->rec_used_index;
         pvideo_move_ctrl->save_mux_handle = pvideo_move_ctrl->mux_handle;
-        pvideo_move_ctrl->rec_used_index = pvideo_move_ctrl->rec_used_index ? 0 : 1; //ÐÂÂ¼ÏñÎÄ¼þindexÇÐ»»
+        pvideo_move_ctrl->rec_used_index = pvideo_move_ctrl->rec_used_index ? 0 : 1; //ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½indexï¿½Ð»ï¿½
         pvideo_move_ctrl->mux_handle =  NULL;
         sem_post(&pvideo_move_ctrl->manage_sem);
         
@@ -1142,7 +1142,7 @@ void *anyka_dection_record_handler(void *user)
 
 /**
  * NAME         anyka_dection_audio_voice_data
- * @BRIEF	ÉùÒôÕì²âÂß¼­
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
  * @PARAM	
  
  * @RETURN	void
@@ -1164,12 +1164,12 @@ int anyka_dection_audio_voice_data(void *pbuf, int len, int valve)
     //caculte direct_current value
     if (checkCnt < 2)  
     {
-        //·ÀÖ¹¿ªÊ¼Â¼Òô´òÑ¹²»ÎÈ¶¨£¬¿ªÊ¼Á½Ö¡²»²ÎÓëÖ±Á÷Æ«ÒÆµÄ¼ÆËã
+        //ï¿½ï¿½Ö¹ï¿½ï¿½Ê¼Â¼ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½È¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Æ«ï¿½ÆµÄ¼ï¿½ï¿½ï¿½
         checkCnt ++;
     }
     else if (checkCnt <= 20)
     {
-    //¿¼ÂÇµ½Ó²¼þËÙ¶È£¬Ö»ÈÃ3µ½20Ö¡µÄÊý¾Ý²ÎÓëÖ±Á÷Æ«ÒÆµÄ¼ÆËã
+    //ï¿½ï¿½ï¿½Çµï¿½Ó²ï¿½ï¿½ï¿½Ù¶È£ï¿½Ö»ï¿½ï¿½3ï¿½ï¿½20Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Æ«ï¿½ÆµÄ¼ï¿½ï¿½ï¿½
         checkCnt ++;
         for (i=0; i<len/2; i++)
         {
@@ -1208,7 +1208,7 @@ int anyka_dection_audio_voice_data(void *pbuf, int len, int valve)
 
 /**
  * NAME         anyka_dection_add_voice_check
- * @BRIEF	ÉùÒôÕì²âÒôÆµÊý¾Ý»Øµ÷
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ý»Øµï¿½
  * @PARAM	
  * @RETURN	void
  * @RETVAL	
@@ -1227,14 +1227,14 @@ void anyka_dection_audio_get_pcm_data(void *param, T_STM_STRUCT *pstream)
     if(anyka_dection_audio_voice_data(pstream->buf, pstream->size, pvideo_move_ctrl->audio_level))
     {
         Psystem_alarm_set_info alarm_info = anyka_sys_alarm_info();	//get system alamr info
-        //Èç¹ûÊ×´ÎÒÆ¶¯£¬½«Çå³ý²¿·ÖÒÔÇ°µÄÊý¾Ý¡£
+        //ï¿½ï¿½ï¿½ï¿½×´ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
         anyka_print("[%s:%d] we check the voice!\n", __func__, __LINE__);
         if(alarm_info->alarm_send_type == 0)
         {
             pvideo_move_ctrl->move_ok = 1;
             pvideo_move_ctrl->alarm_type = SYS_CHECK_VOICE_ALARM;
             pvideo_move_ctrl->move_time = time(0);
-            sem_post(&pvideo_move_ctrl->save_sem);      //·¢³öÐÅºÅÍ¨ÖªÆô¶¯Â¼ÏñÏß³Ì
+            sem_post(&pvideo_move_ctrl->save_sem);      //ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½Í¨Öªï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ß³ï¿½
             if((send_alarm_time + alarm_info->alarm_send_msg_time < pvideo_move_ctrl->cur_time) && (pvideo_move_ctrl->Palarm_func))
             {
                 send_alarm_time = pvideo_move_ctrl->cur_time;
@@ -1254,8 +1254,8 @@ void anyka_dection_audio_get_pcm_data(void *param, T_STM_STRUCT *pstream)
 
 /**
  * NAME         anyka_dection_add_voice_check
- * @BRIEF	´ò¿ªÒÆ¶¯Õì²â¹¦ÄÜ
- * @PARAM	move_level Õì²âµÄ±ê×¼
+ * @BRIEF	ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½â¹¦ï¿½ï¿½
+ * @PARAM	move_level ï¿½ï¿½ï¿½Ä±ï¿½×¼
  * @RETURN	void
  * @RETVAL	
  */
@@ -1290,7 +1290,7 @@ void check_move_add_video_check(int move_level)
     {
         Sensitivity[i] = ratios;
     }
-	//·Ö¸îÍ¼ÏñÎªmotion_size_x * motion_size_y ¿é
+	//ï¿½Ö¸ï¿½Í¼ï¿½ï¿½Îªmotion_size_x * motion_size_y ï¿½ï¿½
     detection_pos.m_uHoriNum = alarm->motion_size_x;
     detection_pos.m_uVeriNum = alarm->motion_size_y;
 	/** start video move check func **/
@@ -1307,8 +1307,8 @@ void check_move_add_video_check(int move_level)
 
 /**
  * NAME         anyka_dection_add_voice_check
- * @BRIEF	´ò¿ªÉùÒôÕì²â¹¦ÄÜ
- * @PARAM	move_level Õì²âµÄ±ê×¼
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â¹¦ï¿½ï¿½
+ * @PARAM	move_level ï¿½ï¿½ï¿½Ä±ï¿½×¼
  * @RETURN	void
  * @RETVAL	
  */
@@ -1356,11 +1356,11 @@ void anyka_dection_add_voice_check(int move_level)
 
 /**
  * NAME         anyka_dection_start
- * @BRIEF	´ò¿ªÕì²â¹¦ÄÜ
- * @PARAM	move_level Õì²âµÄ±ê×¼
-                    check_type Õì²âÀàÐÍ
-                    Palarm_func Õì²â»Øµ÷º¯Êý
-                    filter_check   µ±Ç°ÊÇ·ñ¹ýÂËÕì²âµÄ£¬Ä¿Ç°Éè¼ÆÌÚÑ¶µÄÔÚÊÓÆµ¹Û¿´µÄÊ±ºò²»×öÕì²â
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½â¹¦ï¿½ï¿½
+ * @PARAM	move_level ï¿½ï¿½ï¿½Ä±ï¿½×¼
+                    check_type ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    Palarm_func ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+                    filter_check   ï¿½ï¿½Ç°ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Û¿ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @RETURN	void
  * @RETVAL	
  */
@@ -1520,7 +1520,7 @@ ERR_video_check_move_start:
 
 /**
  * NAME         anyka_dection_stop
- * @BRIEF	¹Ø±ÕÏàÓ¦µÄÕì²âÀàÐÍ,Èç¹ûËùÓÐÕì²âÈ«±»¹Ø±Õ£¬ÎÒÃÇ½«ÊÍ·ÅËùÓÐ×ÊÔ´
+ * @BRIEF	ï¿½Ø±ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ø±Õ£ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
  * @PARAM	check_type
  * @RETURN	void
  * @RETVAL	
@@ -1534,7 +1534,7 @@ void anyka_dection_stop(int check_type)
     }
     if(check_type & SYS_CHECK_VIDEO_ALARM)
     {
-        //¹Ø±ÕÒÆ¶¯Õì²â
+        //ï¿½Ø±ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½
         if(pvideo_move_ctrl->check_type & SYS_CHECK_VIDEO_ALARM)
         {
             video_stop_move_check();
@@ -1544,7 +1544,7 @@ void anyka_dection_stop(int check_type)
     }
     if(check_type & SYS_CHECK_VOICE_ALARM)
     {
-        //¹Ø±ÕÉùÒôÕì²â
+        //ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(pvideo_move_ctrl->check_type & SYS_CHECK_VOICE_ALARM)
         {
             audio_del(SYS_AUDIO_RAW_PCM, (void *)pvideo_move_ctrl);
@@ -1563,7 +1563,7 @@ void anyka_dection_stop(int check_type)
 	}
     if(pvideo_move_ctrl->check_type == 0)
     {
-        //Èç¹ûËùÓÐÕì²âÈ«²¿¹Ø±Õºó£¬½«ÊÍ·Å×ÊÔ´
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ø±Õºó£¬½ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ô´
         pvideo_move_ctrl->run_flag = 0;
         if(pvideo_move_ctrl->save_record_flag)
         {
@@ -1600,9 +1600,9 @@ void anyka_dection_stop(int check_type)
 
 /**
  * NAME         anyka_dection_pass_video_check
- * @BRIEF	ÊÇ·ñºöÂÔÕì²âµÄ»Øµ÷£¬Ä¿Ç°Ö»ÓÐÌÚÑ¶Æ½Ì¨Ê¹ÓÃ£¬ÔÚ¹Û¿´ÊÓÆµÊ±£¬²»×öÕì²â
+ * @BRIEF	ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½Ä¿Ç°Ö»ï¿½ï¿½ï¿½ï¿½Ñ¶Æ½Ì¨Ê¹ï¿½Ã£ï¿½ï¿½Ú¹Û¿ï¿½ï¿½ï¿½ÆµÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	
- * @RETURN	0 :²»×öÂß¼­ÐÞ¸Ä£¬1:²»¼ì²â£¬µ«ÊÇÄ¬ÈÏ·¢ËÍÕì²âÏûÏ¢ 2: ²»¼ì²â£¬Ò²²»·¢ËÍÕì²âÐÅÏ¢
+ * @RETURN	0 :ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½Þ¸Ä£ï¿½1:ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 2: ï¿½ï¿½ï¿½ï¿½â£¬Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
  * @RETVAL	
  */
 int anyka_dection_pass_video_check(void)
@@ -1633,11 +1633,11 @@ int anyka_dection_pass_video_check(void)
 
 /**
  * NAME         anyka_dection_init
- * @BRIEF	ÏµÍ³Æô¶¯Ê±£¬¶ÁÈ¡ÅäÖÃÎÄ¼þ£¬¿´¹Ø»úÇ°ÊÇ·ñÉèÖÃÕì²â£¬Èç¹ûÉèÖÃ
-                    Æô¶¯ÏàÓ¦¹¦ÄÜ,ÒòÕì²âµ½ÁËÒª·¢ÏûÏ¢³öÈ¥£¬Ä¿Ç°Ö»Ö§³Ö´óÄÃ£¬Èç¹ûÆäËü
-                    Æ½Ì¨£¬ÐÞ¸Ä»Øµ÷º¯Êý¾Í¿ÉÒÔ
- * @PARAM	Palarm_func  Èç¹û·¢ÉúÕì²âÊ±µÄ»Øµ÷º¯Êý
-                    filter_check   µ±Ç°ÊÇ·ñ¹ýÂËÕì²âµÄ£¬Ä¿Ç°Éè¼ÆÌÚÑ¶µÄÔÚÊÓÆµ¹Û¿´µÄÊ±ºò²»×öÕì²â
+ * @BRIEF	ÏµÍ³ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½Ç°ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½âµ½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½È¥ï¿½ï¿½Ä¿Ç°Ö»Ö§ï¿½Ö´ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    Æ½Ì¨ï¿½ï¿½ï¿½Þ¸Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½
+ * @PARAM	Palarm_func  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½
+                    filter_check   ï¿½ï¿½Ç°ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Û¿ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @RETURN	void
  * @RETVAL	
  */
@@ -1651,12 +1651,12 @@ void anyka_dection_init(PANYKA_SEND_ALARM_FUNC Palarm_func, PANYKA_FILTER_VIDEO_
 
     if(alarm->motion_detection)
     {
-        //Æô¶¯ÒÆ¶¯Õì²â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½
         anyka_dection_start(alarm->motion_detection - 1, SYS_CHECK_VIDEO_ALARM, Palarm_func, filter_check);
     }
     if(alarm->opensound_detection)
     { 
-        //Æô¶¯ÉùÒôÕì²â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         anyka_dection_start(alarm->opensound_detection - 1, SYS_CHECK_VOICE_ALARM, Palarm_func, filter_check);
     }
 	if(alarm->other_detection){ 
@@ -1668,9 +1668,9 @@ void anyka_dection_init(PANYKA_SEND_ALARM_FUNC Palarm_func, PANYKA_FILTER_VIDEO_
 
 /**
  * NAME         anyka_dection_save_record
- * @BRIEF	Õì²âÂ¼ÏñÊÇ·ñ¿ªÊ¼
+ * @BRIEF	ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ç·ï¿½Ê¼
  * @PARAM	
- * @RETURN	1-->ÕýÔÚÕì²âÂ¼Ïñ; 0-->Õì²âÂ¼ÏñÎ´¿ªÊ¼
+ * @RETURN	1-->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½; 0-->ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Î´ï¿½ï¿½Ê¼
  * @RETVAL	
  */
 
@@ -1682,7 +1682,7 @@ int anyka_dection_save_record(void)
 
 /**
  * NAME         anyka_dection_pause_dection
- * @BRIEF	Í£Ö¹ÒÆ¶¯ÓëÉùÒôÕì²â
+ * @BRIEF	Í£Ö¹ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	
  * @RETURN	
  * @RETVAL	
@@ -1692,7 +1692,7 @@ void anyka_dection_pause_dection(void)
 {
     if(pvideo_move_ctrl && pvideo_move_ctrl->check_flag)
     {
-#ifdef STOP_DECT_RECORD   //Ö§³ÖÔÝÍ£Õì²âÂ¼Ïñ
+#ifdef STOP_DECT_RECORD   //Ö§ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
         //stop audio&video codec
         video_del(pvideo_move_ctrl);
         audio_del(SYS_AUDIO_ENCODE_AMR, pvideo_move_ctrl);
@@ -1704,7 +1704,7 @@ void anyka_dection_pause_dection(void)
 
 /**
  * NAME         anyka_dection_resume_dection
- * @BRIEF	»Ö¸´ÒÆ¶¯ÓëÉùÒôÕì²â
+ * @BRIEF	ï¿½Ö¸ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	
  * @RETURN	
  * @RETVAL	
@@ -1716,7 +1716,7 @@ void anyka_dection_resume_dection(void)
     {
         pvideo_move_ctrl->check_flag = 1;
 
-#ifdef STOP_DECT_RECORD   //Ö§³ÖÔÝÍ£Õì²âÂ¼Ïñ
+#ifdef STOP_DECT_RECORD   //Ö§ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
 		/** add video get data **/
         video_add(anyka_dection_move_video_data, (void *)pvideo_move_ctrl, FRAMES_ENCODE_RECORD, 15);
         /** add audio get data **/

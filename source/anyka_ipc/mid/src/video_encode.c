@@ -149,7 +149,7 @@ T_VOID *video_encode_open(T_ENC_INPUT *pencInput)
 		return NULL;
 	}	
 	temp = akuio_vaddr2paddr(pencode_handle->poutbuf) & 7;
-	//±àÂëbuffer ÆðÊ¼µØÖ·±ØÐë8×Ö½Ú¶ÔÆë
+	//ï¿½ï¿½ï¿½ï¿½buffer ï¿½ï¿½Ê¼ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½8ï¿½Ö½Ú¶ï¿½ï¿½ï¿½
 	pencode_handle->pencbuf = ((T_U8 *)pencode_handle->poutbuf) + ((8-temp)&7);
     pencode_handle->IPFrame_ctrl = 0;
 	pencode_handle->width = pencInput->width;
@@ -160,24 +160,24 @@ T_VOID *video_encode_open(T_ENC_INPUT *pencInput)
         pencode_handle->encode_type = VIDEO_DRV_H264;
 	    //H264 encoder
         open_input.encFlag = VIDEO_DRV_H264;
-    	open_input.encH264Par.width = pencInput->width;			//Êµ¼Ê±àÂëÍ¼ÏñµÄ¿í¶È£¬ÄÜ±»4Õû³ý
-    	open_input.encH264Par.height = pencInput->height;			//Êµ¼Ê±àÂëÍ¼ÏñµÄ³¤¶È£¬ÄÜ±»2Õû³ý 
+    	open_input.encH264Par.width = pencInput->width;			//Êµï¿½Ê±ï¿½ï¿½ï¿½Í¼ï¿½ï¿½Ä¿ï¿½ï¿½È£ï¿½ï¿½Ü±ï¿½4ï¿½ï¿½ï¿½ï¿½
+    	open_input.encH264Par.height = pencInput->height;			//Êµï¿½Ê±ï¿½ï¿½ï¿½Í¼ï¿½ï¿½Ä³ï¿½ï¿½È£ï¿½ï¿½Ü±ï¿½2ï¿½ï¿½ï¿½ï¿½ 
     	open_input.encH264Par.lumWidthSrc = pencInput->lumWidthSrc;
     	open_input.encH264Par.lumHeightSrc = pencInput->lumHeightSrc;
     	open_input.encH264Par.horOffsetSrc = (pencInput->lumHeightSrc - pencInput->height)/2;
     	open_input.encH264Par.verOffsetSrc = (pencInput->lumHeightSrc - pencInput->height)/2;
 
     	/*
-    	    ÂëÂÊµ÷ÊÔ¼¼ÇÉ:
-    	    ³õÊ¼frameRateNumÒªÉèÖÃµÄ±ÈºóÃæÊµ¼ÊÖ¡ÂÊÒª´ó(±ÈÈç´óÒ»±¶)£¬¿ÉÒÔÓÐÐ§½µµÍÂëÂÊ¡£
-    	    ´ËÊ±¿ÉÒÔ°ÑqpMaxÉèÖÃµÄÐ¡Ò»µã£¬±£Ö¤»­ÃæÖÊÁ¿ÎÞÂíÈü¿Ë¡£
+    	    ï¿½ï¿½ï¿½Êµï¿½ï¿½Ô¼ï¿½ï¿½ï¿½:
+    	    ï¿½ï¿½Ê¼frameRateNumÒªï¿½ï¿½ï¿½ÃµÄ±Èºï¿½ï¿½ï¿½Êµï¿½ï¿½Ö¡ï¿½ï¿½Òªï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¡ï¿½
+    	    ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ô°ï¿½qpMaxï¿½ï¿½ï¿½Ãµï¿½Ð¡Ò»ï¿½ã£¬ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
     	*/
-    	open_input.encH264Par.rotation = 0;		//±àÂëÇ°yuvÍ¼ÏñµÄÐý×ª
-    	open_input.encH264Par.frameRateDenom = 1;	//Ö¡ÂÊµÄ·ÖÄ¸
-    	open_input.encH264Par.frameRateNum = pencInput->framePerSecond;	//Ö¡ÂÊµÄ·Ö×Ó
+    	open_input.encH264Par.rotation = 0;		//ï¿½ï¿½ï¿½ï¿½Ç°yuvÍ¼ï¿½ï¿½ï¿½ï¿½ï¿½×ª
+    	open_input.encH264Par.frameRateDenom = 1;	//Ö¡ï¿½ÊµÄ·ï¿½Ä¸
+    	open_input.encH264Par.frameRateNum = pencInput->framePerSecond;	//Ö¡ï¿½ÊµÄ·ï¿½ï¿½ï¿½
     	
-    	open_input.encH264Par.qpHdr = 28;//-1;			//³õÊ¼µÄQPµÄÖµ
-      	open_input.encH264Par.streamType = 0;		//ÓÐstartcodeºÍÃ»startcodeÁ½ÖÖ
+    	open_input.encH264Par.qpHdr = 28;//-1;			//ï¿½ï¿½Ê¼ï¿½ï¿½QPï¿½ï¿½Öµ
+      	open_input.encH264Par.streamType = 0;		//ï¿½ï¿½startcodeï¿½ï¿½Ã»startcodeï¿½ï¿½ï¿½ï¿½
 #if 0
 		if (2 == pvideo_default_config->profile_mode)	//high profile
 		{
@@ -211,10 +211,10 @@ T_VOID *video_encode_open(T_ENC_INPUT *pencInput)
 		pencode_handle->video_mode = pencInput->video_mode;
 		pencode_handle->qp = open_input.encH264Par.fixedIntraQp; //VBR mode
 				
-        open_input.encH264Par.bitPerSecond = pencInput->bitPerSecond*1024;	//Ä¿±êbps
+        open_input.encH264Par.bitPerSecond = pencInput->bitPerSecond*1024;	//Ä¿ï¿½ï¿½bps
         open_input.encH264Par.gopLen = pencInput->gopLen;  
 
-        //¿ªÆôºê¿éQP¿ØÖÆÒÔ¼°¶ªÖ¡¹¦ÄÜ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½QPï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½
 		open_input.encH264Par.mbRc = 0;
 		open_input.encH264Par.hrd = 0;    
 		open_input.encH264Par.pictureSkip = 0;
@@ -339,9 +339,9 @@ int video_encode_frame(T_VOID * pencode_handle, void *pinbuf2, void **poutbuf2, 
 	
 	//the second channel setting, CBR mode
 	//if(!handle->video_mode)		//CBR
-	    video_enc_io_param2.QP = 0;		        //±àÂëÆ÷×ÔÐÐ¾ö¶¨		
+	    video_enc_io_param2.QP = 0;		        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½		
 	//else	//VBR
-    	//video_enc_io_param2.QP = handle->qp;    //±àÂëÆ÷×ÔÐÐ¾ö¶¨		
+    	//video_enc_io_param2.QP = handle->qp;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½		
 
     if(NULL == pencode_handle)
     {
@@ -352,7 +352,7 @@ int video_encode_frame(T_VOID * pencode_handle, void *pinbuf2, void **poutbuf2, 
 	if ((handle->encode_type == VIDEO_DRV_H264 && handle->IPFrame_ctrl == 0) || handle->encode_type == VIDEO_DRV_MJPEG) //I frame
 	{
 		*nIsIFrame = 1;					
-		video_enc_io_param2.mode = 0;   //±àÂëÀàÐÍI/PÖ¡,0£¬i£¬1£¬p
+		video_enc_io_param2.mode = 0;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½I/PÖ¡,0ï¿½ï¿½iï¿½ï¿½1ï¿½ï¿½p
 	}
 	else //P frame
 	{
@@ -360,9 +360,9 @@ int video_encode_frame(T_VOID * pencode_handle, void *pinbuf2, void **poutbuf2, 
 		video_enc_io_param2.mode = 1;
 	}
 
-	video_enc_io_param2.p_curr_data = pinbuf2;		//yuvÊäÈëµØÖ·
-	video_enc_io_param2.p_vlc_data = handle->pencbuf;			//ÂëÁ÷Êä³öµØÖ·
-	video_enc_io_param2.out_stream_size = ENCMEM;	//Êä³öÂëÁ÷µÄ´óÐ¡
+	video_enc_io_param2.p_curr_data = pinbuf2;		//yuvï¿½ï¿½ï¿½ï¿½ï¿½Ö·
+	video_enc_io_param2.p_vlc_data = handle->pencbuf;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
+	video_enc_io_param2.out_stream_size = ENCMEM;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½Ð¡
 
     pthread_mutex_lock(&handle->lock);    
 	VideoStream_Enc_Encode(handle->encode_handle, NULL, &video_enc_io_param2, NULL);
@@ -642,7 +642,8 @@ int video_encode_reSetRc(T_VOID * pencode_handle, int bps)
 #endif
 
 	anyka_print("[%s:%d] set qp to [%ld,%ld]\n",
-		   	__func__, __LINE__, handle->video_rc.qpMin, handle->video_rc.qpMax);
+		   	__func__, __LINE__, handle->video_rc.qpMin, handle->video_rc.qpMax);
+
 		   	
     pthread_mutex_lock(&handle->lock);
 	ret = VideoStream_Enc_setRC(handle->encode_handle, &handle->video_rc);

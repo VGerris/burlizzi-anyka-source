@@ -14,7 +14,7 @@ LOCAL_CFLAGS := -D__LINUX__ -Wall
 
 LOCAL_SHARED_LIBRARIES := pthread
 
-PREFIX := arm-none-linux-gnueabi-
+PREFIX := arm-anykav200-linux-uclibcgnueabi-
 
 LOCAL_C_INCLUDES :=	./
 

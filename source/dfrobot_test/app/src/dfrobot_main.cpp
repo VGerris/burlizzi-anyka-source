@@ -188,8 +188,8 @@ static bool rtsp_status_flag = false;
 
 typedef struct DFROBOT_VIDEO_HANDLE
 {
-	uint8    encode_use_flag;    //Õâ¸ö±à³ÌÆ÷ÊÇ·ñÔÚ¹¤×÷
-    uint8    video_size_flag;    //720pÓëVGAµÄÑ¡Ôñ£¬TRUEÎª720P
+	uint8    encode_use_flag;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
+    uint8    video_size_flag;    //720pï¿½ï¿½VGAï¿½ï¿½Ñ¡ï¿½ï¿½TRUEÎª720P
     uint8    frames;
     uint8    index;
 	T_VOID  *encode_handle;
@@ -473,7 +473,7 @@ bool set_tuling_param(TULING_SET_PARAM * param)
 
 static void appExit()
 {
-	//ÕâÀïºóÃæÔÙÌí¼ÓÐèÒªÊÍ·ÅµÄ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Í·Åµï¿½
 	printf("app exit\r\n");
 	broadcast_flag = 0;
 	pthread_cancel(dfrobot_rtsp_server_pthread);
@@ -599,7 +599,7 @@ void* video_encode_and_read_data(void *arg)
 		camera_get_camera_info(cur_frame_info, (void**)&pbuf, &size, &ts);
 		//printf("----------size=%d\r\n",size);
 
-		//½øÐÐ±àÂë
+		//ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 		encode_buffer = pbuf;
 
 		encode_size = video_encode_frame(encode_handle.encode_handle, encode_buffer, &pencode_outbuf, &IPFrame_type);
@@ -629,7 +629,7 @@ void* video_encode_and_read_data(void *arg)
 			
 			printf("filename is %s\r\n",filename);
 		
-			long fid = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+			long fid = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 			if(fid <= 0)
 			{
 				printf("open file error\r\n");
@@ -649,7 +649,7 @@ void* video_encode_and_read_data(void *arg)
 			char buf2[100] = {0};
 			strftime(buf, sizeof(buf),"%Y_%m_%d_%H_%M_%S.jpeg",timeinfo);
 			sprintf(buf2, "%s%s",DFROBOT_PHOTO_DIR, buf);
-			long fid = open(buf2,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+			long fid = open(buf2,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 			if(fid <= 0)
 			{
 				printf("open file error\r\n");
@@ -786,7 +786,7 @@ void *audio_record_data_write_queue(void *arg)
 	//while(1)
 	while(audio_mode_flag)
 	{	
-		if(aplay_flag == 1)//²¥·ÅµÄÊ±ºò²»ÄÜÂ¼Òô£¬ÓÐ»ØÒô
+		if(aplay_flag == 1)//ï¿½ï¿½ï¿½Åµï¿½Ê±ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½
 		{
 #ifdef RUN_AUDIO_ANALYSES
 			audio_bzero_voice_data();
@@ -830,7 +830,7 @@ void *audio_record_data_write_queue(void *arg)
 			gettimeofday(&tvs1, NULL);
 			tvs2.tv_sec = tvs1.tv_sec;
 			sprintf(filename, "/mnt/pcm/test8k%d.aac", file_count);
-			fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+			fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 			if(fd < 0)
 			{
 				printf("open %s error\r\n",filename);
@@ -856,7 +856,7 @@ void *audio_record_data_write_queue(void *arg)
 			tvs2.tv_sec = tvs1.tv_sec;
 			sprintf(filename, "/mnt/pcm/test8k%d.aac", file_count);
 			printf("pcm new file is :%s\r\n",filename);
-			fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+			fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 			if(fd < 0)
 			{
 					printf("open %s file failed\r\n", filename);
@@ -1449,7 +1449,7 @@ void dfrobot_audio_record(T_AUDIO_INPUT *input)
 	static int count = 1;
 	char filename[100];
 	sprintf(filename, "/mnt/pcm/test16k%d.pcm", count);
-	fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+	fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 	if(fd < 0)
 	{
 		printf("open %s file failed\r\n",filename);
@@ -1491,7 +1491,7 @@ void dfrobot_audio_record(T_AUDIO_INPUT *input)
 			tvs2.tv_sec = tvs1.tv_sec;
 			sprintf(filename, "/mnt/pcm/test16k%d.pcm", count);
 			printf("pcm new file is :%s\r\n",filename);
-			fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+			fd = open(filename,    O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 			if(fd < 0)
 			{
 					printf("open %s file failed\r\n", filename);
@@ -1633,9 +1633,9 @@ int main()
 	}
 
 
-	//³õÊ¼»¯Ó²¼þ
+	//ï¿½ï¿½Ê¼ï¿½ï¿½Ó²ï¿½ï¿½
 	PTZControlInit();
-	//init dma memory  //ÒÔºó¿ÉÄÜÐèÒªÌí¼ÓÓïÒôÖ§³Ö
+	//init dma memory  //ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½
 	akuio_pmem_init();
 	if (0 != camera_open())
 	{
@@ -1646,7 +1646,7 @@ int main()
 	camera_ioctl(1280, 720);
 	printf("came open ok!\r\n");
 
-	//³õÊ¼»¯Èí¼þ
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	encode_info = (T_ENC_INPUT *)malloc(sizeof(T_ENC_INPUT));
 	
 	encode_handle.video_size_flag = 1;//720p
@@ -1673,7 +1673,7 @@ int main()
 #endif
 
 #if 0  //test for playback audio
-	//ÕâÀïÖ»ÄÜÓÃ8k ËÙÂÊ²¥·Å16k ²ÉÑùµÄÓïÒô
+	//ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½8k ï¿½ï¿½ï¿½Ê²ï¿½ï¿½ï¿½16k ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	unsigned char* audio_buf = (unsigned char *)malloc(3*1024*1024);
 	long fd = open("/mnt/test/test.pcm", O_RDONLY);
@@ -1867,7 +1867,7 @@ void *broadcast_ip(void *arg)
 	}
 
 
-	//»ñÈ¡Ç¶Ì××Ö½Ó¿Ú
+	//ï¿½ï¿½È¡Ç¶ï¿½ï¿½ï¿½Ö½Ó¿ï¿½
 	ifc.ifc_len = sizeof(buffer);
 	ifc.ifc_buf = buffer;
 	if(ioctl(sock, SIOCGIFCONF, (char*)&ifc) < 0)
@@ -1900,11 +1900,11 @@ void *broadcast_ip(void *arg)
 	
 	memcpy(&broadcast_addr, (char *)&ifr->ifr_broadaddr, sizeof(struct sockaddr_in));
 	printf("broadcast addr:%s\r\n",inet_ntoa(broadcast_addr.sin_addr));
-	//ÉèÖÃ¹ã²¥¶Ë¿ÚºÅ
+	//ï¿½ï¿½ï¿½Ã¹ã²¥ï¿½Ë¿Úºï¿½
 	broadcast_addr.sin_family = AF_INET;
 	broadcast_addr.sin_port = htons(DFROBOT_BROADCAST_PORT);
 
-	//ÉèÖÃsocket Ö§³Ö¹ã²¥
+	//ï¿½ï¿½ï¿½ï¿½socket Ö§ï¿½Ö¹ã²¥
 	setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &so_broadcast, sizeof(so_broadcast));
 
 	int cnt = 0;
@@ -3328,9 +3328,9 @@ int main()
 
 
 
-	//³õÊ¼»¯Ó²¼þ
+	//ï¿½ï¿½Ê¼ï¿½ï¿½Ó²ï¿½ï¿½
 	PTZControlInit();
-	//init dma memory  //ÒÔºó¿ÉÄÜÐèÒªÌí¼ÓÓïÒôÖ§³Ö
+	//init dma memory  //ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½
 	akuio_pmem_init();
 
 
@@ -3348,7 +3348,7 @@ int main()
 
 
 
-	//³õÊ¼»¯Èí¼þ
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	encode_info = (T_ENC_INPUT *)malloc(sizeof(T_ENC_INPUT));
 	
 	encode_handle.video_size_flag = 1;//720p

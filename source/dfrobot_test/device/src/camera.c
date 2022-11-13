@@ -52,29 +52,29 @@
 #define V4L2_CID_SENSOR_RESOLUTION	(V4L2_CID_USER_CLASS + 8)
 
 /////////////////////////////OSD start/////////////////////////////////////////////////////////////////////
-#define MAIN_CHAN_OSD_PER_LINE_BYTES			7680	//max 7680. Ö÷Í¨µÀÃ¿ÐÐ×ÖÌå×î´óÕ¼ÓÃ×Ö½ÚÊý
-#define SUB_CHAN_OSD_PER_LINE_BYTES				5760	//max 5760. ´ÎÍ¨µÀÃ¿ÐÐ×ÖÌå×î´óÕ¼ÓÃ×Ö½ÚÊý
-#define OSD_LINES								2		//¿ÉÏÔÊ¾OSD×ÖÌåÐÐÊý
-#define MAIN_CHAN_OSD_BUFFER_SIZE				(MAIN_CHAN_OSD_PER_LINE_BYTES * OSD_LINES)	//Ö÷Í¨µÀOSD¿ÉÓÃ×î´óbuffer
-#define SUB_CHAN_OSD_BUFFER_SIZE				(SUB_CHAN_OSD_PER_LINE_BYTES * OSD_LINES)	//´ÎÍ¨µÀOSD¿ÉÓÃ×î´óbuffer
-#define OSD_UNICODE_CODES_NUM					100		//×î¶à¿ÉÏÔÊ¾×Ö·ûÊý
+#define MAIN_CHAN_OSD_PER_LINE_BYTES			7680	//max 7680. ï¿½ï¿½Í¨ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+#define SUB_CHAN_OSD_PER_LINE_BYTES				5760	//max 5760. ï¿½ï¿½Í¨ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+#define OSD_LINES								2		//ï¿½ï¿½ï¿½ï¿½Ê¾OSDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define MAIN_CHAN_OSD_BUFFER_SIZE				(MAIN_CHAN_OSD_PER_LINE_BYTES * OSD_LINES)	//ï¿½ï¿½Í¨ï¿½ï¿½OSDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½buffer
+#define SUB_CHAN_OSD_BUFFER_SIZE				(SUB_CHAN_OSD_PER_LINE_BYTES * OSD_LINES)	//ï¿½ï¿½Í¨ï¿½ï¿½OSDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½buffer
+#define OSD_UNICODE_CODES_NUM					100		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ö·ï¿½ï¿½ï¿½
 
-#define OPAQUE_ALPHA							0		//²»Í¸Ã÷µÄalpha
-#define CRYSTAL_CLEAR_ALPHA						15		//ÍêÈ«Í¸Ã÷µÄalpha
+#define OPAQUE_ALPHA							0		//ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½alpha
+#define CRYSTAL_CLEAR_ALPHA						15		//ï¿½ï¿½È«Í¸ï¿½ï¿½ï¿½ï¿½alpha
 
-#define CRYSTAL_CLEAR_COLOR_TABLE_INDEX 		0		//ÍêÈ«Í¸Ã÷µÄcolor table
-#define WHITE_COLOR_TABLE_INDEX 				1		//°×É«µÄcolor table
-#define BLACK_COLOR_TABLE_INDEX 				2		//ºÚÉ«µÄcolor table
+#define CRYSTAL_CLEAR_COLOR_TABLE_INDEX 		0		//ï¿½ï¿½È«Í¸ï¿½ï¿½ï¿½ï¿½color table
+#define WHITE_COLOR_TABLE_INDEX 				1		//ï¿½ï¿½É«ï¿½ï¿½color table
+#define BLACK_COLOR_TABLE_INDEX 				2		//ï¿½ï¿½É«ï¿½ï¿½color table
 
-#define DEF_ALPHA								((OPAQUE_ALPHA + CRYSTAL_CLEAR_ALPHA) * 5 / 10)		//È«¾Öalpha
-#define DEF_1ST_FONTS_COLOR_TABLE_INDEX 		WHITE_COLOR_TABLE_INDEX			//µÚÒ»ÐÐ×ÖÌåÑÕÉ«: °×É«
-#define DEF_2ND_FONTS_COLOR_TABLE_INDEX 		WHITE_COLOR_TABLE_INDEX			//µÚ¶þÐÐ×ÖÌåÑÕÉ«: °×É«
-#define DEF_1ST_GROUND_COLOR_TABLE_INDEX		BLACK_COLOR_TABLE_INDEX			//µÚÒ»ÐÐµ×É«: ºÚÉ«
-#define DEF_2ND_GROUND_COLOR_TABLE_INDEX		BLACK_COLOR_TABLE_INDEX			//µÚ¶þÐÐµ×É«: ºÚÉ«
+#define DEF_ALPHA								((OPAQUE_ALPHA + CRYSTAL_CLEAR_ALPHA) * 5 / 10)		//È«ï¿½ï¿½alpha
+#define DEF_1ST_FONTS_COLOR_TABLE_INDEX 		WHITE_COLOR_TABLE_INDEX			//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«: ï¿½ï¿½É«
+#define DEF_2ND_FONTS_COLOR_TABLE_INDEX 		WHITE_COLOR_TABLE_INDEX			//ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«: ï¿½ï¿½É«
+#define DEF_1ST_GROUND_COLOR_TABLE_INDEX		BLACK_COLOR_TABLE_INDEX			//ï¿½ï¿½Ò»ï¿½Ðµï¿½É«: ï¿½ï¿½É«
+#define DEF_2ND_GROUND_COLOR_TABLE_INDEX		BLACK_COLOR_TABLE_INDEX			//ï¿½Ú¶ï¿½ï¿½Ðµï¿½É«: ï¿½ï¿½É«
 
-#define MAIN_OSD_RELATIVE_OFFSET_X				24		//Ö÷Í¨µÀOSDºáÖáºÍ×ÝÖáÆ«ÒÆ
+#define MAIN_OSD_RELATIVE_OFFSET_X				24		//ï¿½ï¿½Í¨ï¿½ï¿½OSDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
 #define MAIN_OSD_RELATIVE_OFFSET_Y				6
-#define SUB_OSD_RELATIVE_OFFSET_X				16		//´ÎÍ¨µÀOSDºáÖáºÍ×ÝÖáÆ«ÒÆ
+#define SUB_OSD_RELATIVE_OFFSET_X				16		//ï¿½ï¿½Í¨ï¿½ï¿½OSDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
 #define SUB_OSD_RELATIVE_OFFSET_Y				6
 
 /////////////////////////////OSD end/////////////////////////////////////////////////////////////////////
@@ -291,7 +291,7 @@ int camera_format_osd_info(T_U16 *osd_buf, int *week_pos, time_t  osd_time)
 	if (pcamera_info->date_format ||
 		pcamera_info->hour_format)
 	{
-		/* Èç¹ûÏÈÏÔÊ¾Êý×Ö£¬Ôò¼ÓÈëÒ»¸ö¿Õ¸ñ */
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Õ¸ï¿½ */
 		osd_buf[osd_len] =' ';
         osd_len++;
 	}
@@ -330,7 +330,7 @@ int camera_format_osd_info(T_U16 *osd_buf, int *week_pos, time_t  osd_time)
     }
     else if(pcamera_info->date_format == 3)
     {
-        // YYYYÄêMMÔÂDDÈÕ
+        // YYYYï¿½ï¿½MMï¿½ï¿½DDï¿½ï¿½
         memcpy(osd_buf + osd_len, year, sizeof(year));
         osd_len += 4;
         osd_buf[osd_len] = year_uni;
@@ -348,7 +348,7 @@ int camera_format_osd_info(T_U16 *osd_buf, int *week_pos, time_t  osd_time)
     }
     else if(pcamera_info->date_format == 4)
     {
-        // MMÔÂDDÈÕYYYYÄê           
+        // MMï¿½ï¿½DDï¿½ï¿½YYYYï¿½ï¿½           
         memcpy(osd_buf + osd_len, month, sizeof(month));
         osd_len += 2;
         osd_buf[osd_len] = mon_uni;
@@ -383,7 +383,7 @@ int camera_format_osd_info(T_U16 *osd_buf, int *week_pos, time_t  osd_time)
     }
     else if(pcamera_info->date_format == 6)
     {
-        // DDÈÕMMÔÂYYYYÄê
+        // DDï¿½ï¿½MMï¿½ï¿½YYYYï¿½ï¿½
         memcpy(osd_buf + osd_len, day, sizeof(day));
         osd_len += 2;
         osd_buf[osd_len] =day_uni;
@@ -402,7 +402,7 @@ int camera_format_osd_info(T_U16 *osd_buf, int *week_pos, time_t  osd_time)
 
 	// Hour-Min-Sec
     //if(pcamera_info->hour_format)
-    if(1) //Ä¿Ç°Èô²»ÏÔÊ¾´ËÄÚÈÝÔòºóÃæµÄÐÇÆÚ¿ÉÄÜ»áÖØµþ£¬ºóÃæÔÙÐÞ¸Ä
+    if(1) //Ä¿Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½Ü»ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
     {
         //hour:min:second
         memcpy(osd_buf + osd_len, hour, sizeof(hour));
@@ -425,14 +425,14 @@ int camera_format_osd_info(T_U16 *osd_buf, int *week_pos, time_t  osd_time)
     {
         if(pcamera_info->week_format == 1)
         {
-            //ÖÐÎÄÏÔÊ¾
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
             week_ch[2] = week_day[tt->tm_wday];
             memcpy(osd_buf + osd_len, week_ch, sizeof(week_ch));
             osd_len += 3;
         }
         else
         {
-            //Ó¢ÎÄÏÔÊ¾
+            //Ó¢ï¿½ï¿½ï¿½ï¿½Ê¾
             memcpy(osd_buf + osd_len, week_day_en[tt->tm_wday], 8);
             osd_len += 4;
         }
@@ -475,7 +475,7 @@ T_VOID  camera_show_curtime_onvideo(T_U8 * destBuf, T_S32 width, T_S32 height, T
     pixelShowCtrl.width  = (T_U32)width;
 
 
-    //ÏÈÏÔÊ¾Ê±¼äÐÅÏ¢£¬
+    //ï¿½ï¿½ï¿½ï¿½Ê¾Ê±ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
     len = camera_format_osd_info(osd_buf, &week_pos, osd_time);
     x = font_size;
     if(len && pcamera_info->time_switch)
@@ -506,7 +506,7 @@ T_VOID  camera_show_curtime_onvideo(T_U8 * destBuf, T_S32 width, T_S32 height, T
 		}
     }
     
-    //ÔÙÏÔÊ¾OSDÐÅÏ¢£¬
+    //ï¿½ï¿½ï¿½ï¿½Ê¾OSDï¿½ï¿½Ï¢ï¿½ï¿½
     if(pcamera_info->osd_unicode_name_len && pcamera_info->osd_switch)
     {
         if(pcamera_info->time_pos_y > 50)
@@ -638,7 +638,7 @@ static void init_userp(unsigned int buffer_size)
 	T_U8 *ptemp;
 	
 	temp = akuio_vaddr2paddr(ion_mem) & 7;
-	//±àÂëbuffer ÆðÊ¼µØÖ·±ØÐë8×Ö½Ú¶ÔÆë
+	//ï¿½ï¿½ï¿½ï¿½buffer ï¿½ï¿½Ê¼ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½8ï¿½Ö½Ú¶ï¿½ï¿½ï¿½
 	ptemp = ((T_U8 *)ion_mem) + ((8-temp)&7);
 
     for (n_buffers = 0; n_buffers < BUFF_NUM; ++n_buffers) {
@@ -1157,28 +1157,28 @@ void camera_osd_para_attr_init(void)
 	int pos_pattern = pcamera_info->osd_position;
 	switch (pos_pattern)
 	{
-	case 1:	//×óÏÂ
+	case 1:	//ï¿½ï¿½ï¿½ï¿½
 		p_osd->xpos_main	= MAIN_OSD_RELATIVE_OFFSET_X;
 		p_osd->ypos_main	= VIDEO_HEIGHT_720P - MAIN_OSD_RELATIVE_OFFSET_Y - (p_osd->font_size_main * OSD_LINES);
 		p_osd->xpos_sub		= SUB_OSD_RELATIVE_OFFSET_X;
 		p_osd->ypos_sub		= VIDEO_HEIGHT_VGA - SUB_OSD_RELATIVE_OFFSET_Y - (p_osd->font_size_sub * OSD_LINES);
 		p_osd->osd_on_right_side	= 0;
 		break;
-	case 2:	//×óÉÏ
+	case 2:	//ï¿½ï¿½ï¿½ï¿½
 		p_osd->xpos_main	= MAIN_OSD_RELATIVE_OFFSET_X;
 		p_osd->ypos_main	= MAIN_OSD_RELATIVE_OFFSET_Y;
 		p_osd->xpos_sub		= SUB_OSD_RELATIVE_OFFSET_X;
 		p_osd->ypos_sub		= SUB_OSD_RELATIVE_OFFSET_Y;
 		p_osd->osd_on_right_side	= 0;
 		break;
-	case 3:	//ÓÒÉÏ
+	case 3:	//ï¿½ï¿½ï¿½ï¿½
 		p_osd->xpos_main	= VIDEO_WIDTH_720P - MAIN_OSD_RELATIVE_OFFSET_X;
 		p_osd->ypos_main	= MAIN_OSD_RELATIVE_OFFSET_Y;
 		p_osd->xpos_sub		= VIDEO_WIDTH_VGA - SUB_OSD_RELATIVE_OFFSET_X;
 		p_osd->ypos_sub		= SUB_OSD_RELATIVE_OFFSET_Y;
 		p_osd->osd_on_right_side	= 1;
 		break;
-	case 4:	//ÓÒÏÂ
+	case 4:	//ï¿½ï¿½ï¿½ï¿½
 		p_osd->xpos_main	= VIDEO_WIDTH_720P - MAIN_OSD_RELATIVE_OFFSET_X;
 		p_osd->ypos_main	= VIDEO_HEIGHT_720P - MAIN_OSD_RELATIVE_OFFSET_Y - (p_osd->font_size_main * OSD_LINES);
 		p_osd->xpos_sub		= VIDEO_WIDTH_VGA - SUB_OSD_RELATIVE_OFFSET_X;
@@ -1234,12 +1234,12 @@ static int is_unicode_digit(T_U16 ch)
 }
 
 /**
-* @brief  »­»­²¼
+* @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 * 
 * @author ye_guohong
 * @date 2015-11-13
-* @param[int] 	-1: Ã»¸ü¸Ä
-				>=0: ³É¹¦ÔÚ»­²¼»­µÄ×Ö·û¸öÊý¡£
+* @param[int] 	-1: Ã»ï¿½ï¿½ï¿½ï¿½
+				>=0: ï¿½É¹ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 * @return int
 * @retval 
 */
@@ -1369,7 +1369,7 @@ static int camera_osd_draw_canvas(int line, T_U16 *disp_string, int len)
 	memset(p_sub_chan_osd_dma_buffer, 0, SUB_CHAN_OSD_PER_LINE_BYTES);
 	if (osd_on_right_side)
 	{
-		/* Èç¹ûosdÔÚÓÒ±ßÏÔÊ¾£¬ÄÇÃ´½«osd°áÒÆµ½osd bufferµÄÓÒ²à */
+		/* ï¿½ï¿½ï¿½osdï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½osdï¿½ï¿½ï¿½Æµï¿½osd bufferï¿½ï¿½ï¿½Ò²ï¿½ */
 		main_Xstart = MAIN_CHAN_OSD_PER_LINE_BYTES / font_size_main * 2 - xpos_m;
 		sub_Xstart = SUB_CHAN_OSD_PER_LINE_BYTES / font_size_sub * 2 - xpos_s;
 	}
@@ -1485,7 +1485,7 @@ int camera_set_osd_context_attr(time_t osd_time)
 	p_codes = pcamera_info->osd_unicode_name;
 	if (pcamera_info->osd_switch)
 	{
-		/* ¼ÓÈëÒ»¸ö¿Õ¸ñ¶ÔÆëµÚ¶þÐÐ */
+		/* ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Õ¸ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ */
 		T_U16 *disp_string = malloc((len + 1) * sizeof(T_U16));
 		static char line0_osd_too_long = 0;
 		
@@ -1649,7 +1649,7 @@ int isp_init_param(int width, int height)
 	ISP_Conf_FileLoad(AK_TRUE, cfgbuf, &cfgsize);
 	printf("cfgsize = %lu\n", cfgsize);
 
-    ion_isp_mem = akuio_alloc_pmem(width*height*3/2*2);//À©´óÒ»±¶ÊÇ3D½µÔëÐèÒª
+    ion_isp_mem = akuio_alloc_pmem(width*height*3/2*2);//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½3Dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª
     
 	int ret = Isp_Module_Init(cfgbuf, cfgsize, akuio_vaddr2paddr(ion_isp_mem), width, height);
 	if (NULL != cfgbuf)
@@ -2119,7 +2119,7 @@ int camera_get_ch1_height(void)
     anyka_print("ch1_height:%d\n", ch1_height);
 	
 #ifdef CONFIG_TENCENT_SUPPORT
-	/* ÌÚÑ¶QQ»á½«640*480ºÍ1280*960ÇÐÐ¡ÏÔÊ¾ */
+	/* ï¿½ï¿½Ñ¶QQï¿½á½«640*480ï¿½ï¿½1280*960ï¿½ï¿½Ð¡ï¿½ï¿½Ê¾ */
 	if (ch1_height > 720)
 		ch1_height = 720;
 	anyka_print("actual ch1_height:%d\n", ch1_height);
@@ -2151,12 +2151,12 @@ enum ircut_mode{
 static int ircut_pthread_running = 0;
 
 /**
-* @brief »ñÈ¡¹âÃôÊäÈëµçÆ½
+* @brief ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½
 * @author ygh
 * @date 2015-10-25
 * @param[in] 
 * @return int
-* @retval < 0Ê§°Ü£¬·ñÔòµçÆ½Öµ 
+* @retval < 0Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Öµ 
 */
 static int camera_get_ir_feed(void)
 {
@@ -2194,13 +2194,13 @@ static int camera_set_ircut(int value, char *name)
 
 
 /**
-* @brief ÉèÖÃircut aÊä³öµçÆ½
+* @brief ï¿½ï¿½ï¿½ï¿½ircut aï¿½ï¿½ï¿½ï¿½ï¿½Æ½
 * @author ygh
 * @date 2015-10-25
 * @param[in] 
-*			value	Êä³öµçÆ½
+*			value	ï¿½ï¿½ï¿½ï¿½ï¿½Æ½
 * @return int
-* @retval 0³É¹¦£¬·ñÔòÊ§°Ü
+* @retval 0ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 */
 static int camera_set_ircut_a(int value)
 {
@@ -2215,13 +2215,13 @@ static int camera_set_ircut_a(int value)
 }
 
 /**
-* @brief ÉèÖÃircut bÊä³öµçÆ½
+* @brief ï¿½ï¿½ï¿½ï¿½ircut bï¿½ï¿½ï¿½ï¿½ï¿½Æ½
 * @author ygh
 * @date 2015-10-25
 * @param[in] 
-*			value	Êä³öµçÆ½
+*			value	ï¿½ï¿½ï¿½ï¿½ï¿½Æ½
 * @return int
-* @retval 0³É¹¦£¬·ñÔòÊ§°Ü
+* @retval 0ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 */
 static int camera_set_ircut_b(int value)
 {
@@ -2236,7 +2236,7 @@ static int camera_set_ircut_b(int value)
 }
 
 /**
-* @brief ircutÏß³Ì
+* @brief ircutï¿½ß³ï¿½
 * @author ygh
 * @date 2015-10-25
 * @param[in] 
@@ -2244,15 +2244,15 @@ static int camera_set_ircut_b(int value)
 * @retval 
 */
 
-/*********** ¹âÃôÊäÈëÐÅºÅ ÕæÖµ±í ***************
-	1 : °×ÌìÄ£Ê½£¬ºìÍâµÆÎ´¿ªÆô¡£
-	0 : Ò¹¼äÄ£Ê½£¬ºìÍâµÆ¿ªÆô¡£
+/*********** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½ ï¿½ï¿½Öµï¿½ï¿½ ***************
+	1 : ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	0 : Ò¹ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 
-/*********** ircut ÕæÖµ±í ***************
-	ircutÓÐÐ§ : ircut_a=0, ircut_b=1
-	ircutÎÞÐ§ : ircut_a=1, ircut_b=0
-	ircut¿ÕÏÐ : ircut_a=0, ircut_b=0
+/*********** ircut ï¿½ï¿½Öµï¿½ï¿½ ***************
+	ircutï¿½ï¿½Ð§ : ircut_a=0, ircut_b=1
+	ircutï¿½ï¿½Ð§ : ircut_a=1, ircut_b=0
+	ircutï¿½ï¿½ï¿½ï¿½ : ircut_a=0, ircut_b=0
 */
 
 static void camera_ircut_set_idly(void)
@@ -2274,31 +2274,31 @@ static void camera_ircut_set(int ir_feed, int mode, char *name)
 		anyka_print("Ircut 1line mode, ir_feed:%d\n",ir_feed);
 		if (ir_feed == IR_FEED_DAYTIME_VALUE)
 		{
-			/*°×Ìì*/
+			/*ï¿½ï¿½ï¿½ï¿½*/
 			camera_set_ircut(0, name);
 			Isp_Module_Switch_Mode(MODE_DAYTIME);
 			nighttime_mode = 0;
 		}
 		else if (ir_feed == (1 - IR_FEED_DAYTIME_VALUE))
 		{
-			/*Ò¹¼ä*/
+			/*Ò¹ï¿½ï¿½*/
 			Isp_Module_Switch_Mode(MODE_NIGHTTIME);
 			camera_set_ircut(1, name);
 			nighttime_mode = 1;
 		}
-        isp_exptime_max_set(); //ÖØÐÂÉèÖÃµ±Ç°Ö¡ÂÊÏÂµÄÆØ¹âÊ±¼ä
+        isp_exptime_max_set(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ç°Ö¡ï¿½ï¿½ï¿½Âµï¿½ï¿½Ø¹ï¿½Ê±ï¿½ï¿½
         return ;
 	}
 
 	anyka_print("Ircut 2line mode, ir_feed:%d\n",ir_feed);
 	if (ir_feed == IR_FEED_DAYTIME_VALUE) {
-		/*°×Ìì*/
+		/*ï¿½ï¿½ï¿½ï¿½*/
 		camera_set_ircut_a(0);
 		camera_set_ircut_b(1);
 		Isp_Module_Switch_Mode(MODE_DAYTIME);
 		nighttime_mode = 0;
 	} else if (ir_feed == (1 - IR_FEED_DAYTIME_VALUE)) {
-		/*Ò¹¼ä*/
+		/*Ò¹ï¿½ï¿½*/
 		Isp_Module_Switch_Mode(MODE_NIGHTTIME);
 		camera_set_ircut_a(1);
 		camera_set_ircut_b(0);
@@ -2308,7 +2308,7 @@ static void camera_ircut_set(int ir_feed, int mode, char *name)
 	usleep(10000);
 	camera_ircut_set_idly();
 
-	isp_exptime_max_set(); //ÖØÐÂÉèÖÃµ±Ç°Ö¡ÂÊÏÂµÄÆØ¹âÊ±¼ä
+	isp_exptime_max_set(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ç°Ö¡ï¿½ï¿½ï¿½Âµï¿½ï¿½Ø¹ï¿½Ê±ï¿½ï¿½
 }
 
 void *camera_ircut_pthread(void)
@@ -2324,7 +2324,7 @@ void *camera_ircut_pthread(void)
 	sleep(3);
 	reload_config_isp_auto_awb_step();
 		
-	/* Èç¹ûÃ»ÓÐ¹âÃô½Ó¿ÚÎÄ¼þ£¬ÔòÈÏÎª²»´æÔÚircutµÄ¹¦ÄÜ¶øÍË³öÏß³Ì */
+	/* ï¿½ï¿½ï¿½Ã»ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ircutï¿½Ä¹ï¿½ï¿½Ü¶ï¿½ï¿½Ë³ï¿½ï¿½ß³ï¿½ */
     /*if (-1 == stat(IR_FEED_FILE_NAME, &st)) {
         anyka_print("Cannot identify '%s': %d, %s\n",
                  IR_FEED_FILE_NAME, errno, strerror(errno));
@@ -2378,7 +2378,7 @@ void *camera_ircut_pthread(void)
 
 		if (rf_feed_level != rf_feed_old_level)
 		{
-			/* ÒÔÏÂÑÓÊ±ÎªÁËÈ¥¶¶¡£*/
+			/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Îªï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½*/
 			sleep(2);
 			if (rf_feed_level == camera_get_ir_feed())
 			{
@@ -2457,9 +2457,9 @@ static int fps_conf_info_init(void)
 {
 	struct stru_fps_conf_info *p_fps_conf_info = &fps_conf_info;
 
-    //Õë¶ÔQÎïÁª»ò´óÄÃµÈÔÆÆ½Ì¨°æ±¾£¬´Ë´¦»áÉèÖÃsensorµÄÊä³öÖ¡ÂÊÎª25µÄÒ»°ë£¬ÕâÑù»á»ñÈ¡±È½ÏºÃµÄÍ¼ÏñÐ§¹û¡£
-    //×¢Òâ±ØÐëÓÃ13Ö¡£¬·ñÔò»áÒýÆðÒôÊÓÆµ²»Í¬²½¡£
-    //Èç¹ûÐèÒª¸ßÖ¡ÂÊ£¬¿ÉÒÔ×¢ÊÍ¸ÃÓï¾äÖØÐÂ»ñµÃ25Ö¡¡£
+    //ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Æ½Ì¨ï¿½æ±¾ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sensorï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½Îª25ï¿½ï¿½Ò»ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½È½ÏºÃµï¿½Í¼ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½
+    //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½13Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ö¡ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â»ï¿½ï¿½25Ö¡ï¿½ï¿½
     #if (defined(CONFIG_DANA_SUPPORT) || defined(CONFIG_TENCENT_SUPPORT))
     cur_camera_frame = max_camera_frame = 13;
     #endif
@@ -2566,7 +2566,7 @@ static void isp_exptime_max_set(void)
 	struct stru_fps_conf_info *p_fps_conf_info = &fps_conf_info;
 	int i=0;
 
-    //´Ë´¦Òª×¢Òâchange_fps_threadÅÜµÄÂýµÄÇé¿ö£¬ÒªµÈ´ýËüµÄ³õÊ¼»¯Íê±Ï
+    //ï¿½Ë´ï¿½Òª×¢ï¿½ï¿½change_fps_threadï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½È´ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
     while(!p_fps_conf_info->sensor_info && i++<2)
     {
         usleep(300);
@@ -2679,7 +2679,7 @@ void camera_do_save_yuv(void *pbuf, long size)
 		return;
 	anyka_print("[%s:%d] save yuv, size: %ld\n", __func__, __LINE__, size);
 
-	int save_yuv_fd = open("/tmp/isp_yuv.img", O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+	int save_yuv_fd = open("/tmp/isp_yuv.img", O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 	if(save_yuv_fd < 0) {
 		perror("open");
 		return;

@@ -2,7 +2,7 @@
 #include "common.h"
 #include "audio_hd.h"
 
-//#define PER_AUDIO_DURATION		(32)		// AACÒ»Ö¡128ms£¬·ÖËÄ´Î±àÂë×é³ÉÒ»Ö¡
+//#define PER_AUDIO_DURATION		(32)		// AACÒ»Ö¡128msï¿½ï¿½ï¿½ï¿½ï¿½Ä´Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ö¡
 #define PER_AUDIO_DURATION		    20 		    // AMRÒ»Ö¡20ms
 
 static Paudio_ctrl_handle paudio_ctrl = NULL;
@@ -73,7 +73,7 @@ void audio_free_stream_ram(void *pStream)
 }
 /**
  * NAME         audio_insert_encode_data_send_queue
- * @BRIEF	 ½«±àÂëºóµÄÒôÆµÊý¾Ý·Åµ½ÏàÓ¦µÄÊý¾Ý¶ÓÁÐ
+ * @BRIEF	 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ý·Åµï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½
  * @PARAM	head
                     pdata
                     size
@@ -109,7 +109,7 @@ void audio_insert_encode_data_send_queue(Paudio_user_thread_handle head, uint8 *
 
 /**
  * NAME         audio_is_working
- * @BRIEF	 ÅÐ¶Ï±àÂëÀàÐÍµÄ¹¤×÷±êÖ¾Î»ÊÇ·ñÎªÕæ
+ * @BRIEF	 ï¿½Ð¶Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾Î»ï¿½Ç·ï¿½Îªï¿½ï¿½
  * @PARAM	void
  * @RETURN	int
  * @RETVAL	if working_flag is ture, return 1; else return 0
@@ -131,7 +131,7 @@ int audio_is_working(void)
 
 /**
  * NAME         audio_need_enable_agc
- * @BRIEF	¸ù¾Ý¹¤×÷±êÖ¾Î»Æô¶¯agc, ÅÅ³ýPCMÀàÐÍÊý¾Ý
+ * @BRIEF	ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾Î»ï¿½ï¿½ï¿½ï¿½agc, ï¿½Å³ï¿½PCMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	void
  * @RETURN	int
  * @RETVAL	if working_flag is ture, return 1; else return 0
@@ -158,7 +158,7 @@ int audio_need_enable_agc(void)
 
 /**
  * NAME         audio_read_ad_pcm
- * @BRIEF	 ´ÓADÖÐ¶Á³öÊý¾Ý,²¢¶ÔÊý¾Ý½øÐÐ±àÂë £¬·Åµ½±àÂëÊý¾Ý¶ÓÁÐÖÐ
+ * @BRIEF	 ï¿½ï¿½ADï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	head
                     pdata
                     size
@@ -215,7 +215,7 @@ static void * audio_read_ad_pcm( void * user )
 		char filename[100];
 		sprintf(filename, "/mnt/pcm/test8k%d.pcm", count);
 		
-		long fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+		long fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 		if(fd < 0)
 		{
 			printf("open %s file failed\r\n",filename);
@@ -247,7 +247,7 @@ static void * audio_read_ad_pcm( void * user )
 				tvs2.tv_sec = tvs1.tv_sec;
 				sprintf(filename, "/mnt/pcm/test8k%d.pcm", count);
 				printf("pcm new file is :%s\r\n",filename);
-				fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY);
+				fd = open(filename,  O_CREAT | O_APPEND | O_TRUNC | O_WRONLY,S_IRUSR|S_IWUSR);
 				if(fd < 0)
 				{
 					printf("open %s file failed\r\n", filename);
@@ -341,7 +341,7 @@ static void * audio_read_ad_pcm( void * user )
 
 /**
  * NAME         audio_modify_sample
- * @BRIEF	 ÐÞ¸Ä²ÉÑùÂÊ
+ * @BRIEF	 ï¿½Þ¸Ä²ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	input
  * @RETURN	void
  * @RETVAL	
@@ -358,8 +358,8 @@ void audio_modify_sample(T_AUDIO_INPUT *input)
 
 /**
  * NAME         audio_modify_vol
- * @BRIEF	 ÐÞ¸Ägain
- * @PARAM	vol, Õâ¸öÖµ Ô½Ð¡£¬ÒôÁ¿Ô½´ó
+ * @BRIEF	 ï¿½Þ¸ï¿½gain
+ * @PARAM	vol, ï¿½ï¿½ï¿½Öµ Ô½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½
  * @RETURN	void
  * @RETVAL	
  */
@@ -374,7 +374,7 @@ void audio_modify_vol(int vol)
 
 /**
  * NAME         audio_modify_filter
- * @BRIEF	 ÖØ²ÉÑùµÄ¿ª¹Ø£¬
+ * @BRIEF	 ï¿½Ø²ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ø£ï¿½
  * @PARAM	on_off
  * @RETURN	void
  * @RETVAL	
@@ -390,7 +390,7 @@ void audio_modify_filter(int on_off)
 
 /**
  * NAME         audio_start
- * @BRIEF	 ¿ªÆôÒôÆµ
+ * @BRIEF	 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµ
  * @PARAM	input
  * @RETURN	void
  * @RETVAL	
@@ -484,7 +484,7 @@ int audio_start(T_AUDIO_INPUT *input)
 
 /**
  * NAME         audio_send_encode_data
- * @BRIEF	 ½«ÒôÆµ¶ÓÁÐÖÐµÄÊý¾Ý£¬Í¨¹ý»Øµ÷ËÍ¸øÓÃ»§
+ * @BRIEF	 ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ý£ï¿½Í¨ï¿½ï¿½ï¿½Øµï¿½ï¿½Í¸ï¿½ï¿½Ã»ï¿½
  * @PARAM	input
  * @RETURN	void
  * @RETVAL	
@@ -514,10 +514,10 @@ static T_pVOID audio_send_encode_data( T_pVOID user )
 
 /**
  * NAME         audio_add
- * @BRIEF	Ó¦ÓÃÆô¶¯ÒôÆµÒ»¸öÊµÀý£¬Ä¿Ç°Ö§³ÖÒÔÏÂ¼¸ÖÖ±àÂë·½Ê½£¬SYS_AUDIO_ENCODE_AAC,SYS_AUDIO_ENCODE_G711,SYS_AUDIO_RAW_PCM,
- * @PARAM	encode_type   ¶ÔÓ¦ÐèÒªÊä³öµÄ±àÂë¸ñÊ½
-                    pcallback ²É¼¯µ½Êý¾ÝµÄ»Øµ÷º¯Êý
-                    mydata    »Øµ÷»Ø´«¸øÓ¦ÓÃµÄÊý¾ÝÖ¸Õë
+ * @BRIEF	Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÆµÒ»ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ä¿Ç°Ö§ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ö±ï¿½ï¿½ë·½Ê½ï¿½ï¿½SYS_AUDIO_ENCODE_AAC,SYS_AUDIO_ENCODE_G711,SYS_AUDIO_RAW_PCM,
+ * @PARAM	encode_type   ï¿½ï¿½Ó¦ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½Ê½
+                    pcallback ï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ»Øµï¿½ï¿½ï¿½ï¿½ï¿½
+                    mydata    ï¿½Øµï¿½ï¿½Ø´ï¿½ï¿½ï¿½Ó¦ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
  * @RETURN	-1-->fail; 0-->ok
  * @RETVAL	
  */
@@ -575,9 +575,9 @@ int audio_add(int  encode_type, AUDIO_SEND_CALLBACK *pcallback, void *mydata)
 
 /**
  * NAME         audio_del
- * @BRIEF	Ó¦ÓÃÍ£Ö¹ÒôÆµµÄÊ¹ÓÃ£¬½«ÊÍ·ÅÎªÆäÉêÇëµÄ×ÊÔ´
- * @PARAM	encode_type   ¶ÔÓ¦ÐèÒªÊä³öµÄ±àÂë¸ñÊ½
-                    mydata    »Øµ÷»Ø´«¸øÓ¦ÓÃµÄÊý¾ÝÖ¸Õë
+ * @BRIEF	Ó¦ï¿½ï¿½Í£Ö¹ï¿½ï¿½Æµï¿½ï¿½Ê¹ï¿½Ã£ï¿½ï¿½ï¿½ï¿½Í·ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
+ * @PARAM	encode_type   ï¿½ï¿½Ó¦ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½Ê½
+                    mydata    ï¿½Øµï¿½ï¿½Ø´ï¿½ï¿½ï¿½Ó¦ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
  * @RETURN	NONE
  * @RETVAL	
  */
@@ -690,7 +690,7 @@ T_VOID audio_encode_stop(int encode_type)
 
 /**
  * NAME         audio_encode_start
- * @BRIEF	³õÊ¼»¯ÒôÆµ×ÊÔ´
+ * @BRIEF	ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Ô´
  * @PARAM	pstEncIn   
                     pstEncOut   
                     oneBufsize

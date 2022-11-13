@@ -14,7 +14,7 @@ LOCAL_MODULE := daemon
 
 LOCAL_CFLAGS := -D__LINUX__
 
-PREFIX := arm-none-linux-gnueabi-
+PREFIX := arm-anykav200-linux-uclibcgnueabi-
 
 LOCAL_SHARED_LIBRARIES := pthread
 

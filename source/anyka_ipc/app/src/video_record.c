@@ -1,11 +1,11 @@
 /*******************************************************************
-´ËÎÄ¼þÍê³ÉµÄ¼Æ»®Â¼ÏñµÄÏà¹Ø¹¦ÄÜ¡£
-Ä¿Ç°Éè¼Æ£¬ÓÃÒ»¸öÏß³Ì×¨ÃÅÀ´´¦Àí´´½¨Óë¹Ø±ÕÎÄ¼þ£¬×îºóÂ¼ÏñÎÄ¼þµÄºÏ³É
-ÁíÍâÒ»¸öÏß³ÌÓÃÓÚ±£´æ±àÂëÊý¾Ý£¬ÓÃÕâ·½Ê½À´±£Ö¤Â¼ÏñÊý¾Ý²»¶ªÊ§¡£
-Èç¹ûÔÚÂ¼Ïñ¹ý³ÌÖÐ³öÏÖÒì³£°Î¿¨µÄ¶¯×÷£¬¿ÉÄÜ»áµ¼ÖÂÎÄ¼þÊý¾ÝÃ»ÓÐ
-Ð´ÈëSD£¬×îÖÕµ¼ÖÂ¿¨±äÖ»¶Á»òÕß¶ªÊ§¿Õ¼ä¡£
-ÁíÍâÑ­»·Â¼Ïñ½«SDÂ¼Âúºó£¬½«»áÒÔÎÄ¼þÃû(ÒÔÊ±¼äÃüÃû)µÄÏÈºóË³Ðò£¬É¾³ý×îÔçµÄ
-Èç¹ûÆÕÍ¨Â¼Ïñ£¬Â¼Âúºó£¬½«×Ô¶¯ÍË³öÂ¼Ïñ
+ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ÉµÄ¼Æ»ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½Ü¡ï¿½
+Ä¿Ç°ï¿½ï¿½Æ£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³ï¿½×¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ÄºÏ³ï¿½
+ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½â·½Ê½ï¿½ï¿½ï¿½ï¿½Ö¤Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ì³£ï¿½Î¿ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü»áµ¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½
+Ð´ï¿½ï¿½SDï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½Â¿ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½Ê§ï¿½Õ¼ä¡£
+ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½Â¼ï¿½ï¿½SDÂ¼ï¿½ï¿½ï¿½ó£¬½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½(ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½Èºï¿½Ë³ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Í¨Â¼ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ó£¬½ï¿½ï¿½Ô¶ï¿½ï¿½Ë³ï¿½Â¼ï¿½ï¿½
 *******************************************************************/
 
 
@@ -25,12 +25,12 @@ int ak_qq_check_video_filter(void);
 
 #define RECORD_SAVE_PATH                "/mnt"
 #define RECORD_TMP_PATH                "/mnt/tmp/"
-#define MIN_DISK_SIZE_FOR_RECORD		(200*1024)  //´ÅÅÌµÄ±£Áô¿Õ¼ä£¬µ¥Î»ÊÇKB
-#define MAX_RECORD_FILE_NAME_LEN        100         //×î´óµÄÂ¼ÏñÎÄ¼þÃû
-#define RECORD_DEFAULT_TIME             (5*60*1000) //µ¥¸öÂ¼ÏñÎÄ¼þµÄÊ±³¤
+#define MIN_DISK_SIZE_FOR_RECORD		(200*1024)  //ï¿½ï¿½ï¿½ÌµÄ±ï¿½ï¿½ï¿½ï¿½Õ¼ä£¬ï¿½ï¿½Î»ï¿½ï¿½KB
+#define MAX_RECORD_FILE_NAME_LEN        100         //ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+#define RECORD_DEFAULT_TIME             (5*60*1000) //ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 
 /**********************************************************************
-¿ªÆôÂ¼ÏñÊ±£¬Ä¬ÈÏ´´½¨Á½¸öÎÄ¼þ£¬anyka_video_record_1ºÍanyka_video_record_2
+ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½Ä¬ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½anyka_video_record_1ï¿½ï¿½anyka_video_record_2
 ***********************************************************************/
 
 const char *anyka_video_tmp_record_file[] =
@@ -40,7 +40,7 @@ const char *anyka_video_tmp_record_file[] =
 };
 
 /**********************************************************************
-¿ªÆôÂ¼ÏñÊ±£¬Ä¬ÈÏ´´½¨Á½¸öË÷ÒýÎÄ¼þ£¬anyka_video_index_1ºÍanyka_video_index_2
+ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½Ä¬ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½anyka_video_index_1ï¿½ï¿½anyka_video_index_2
 ***********************************************************************/
 
 const char *anyka_video_tmp_index_file[] =
@@ -56,26 +56,26 @@ typedef struct _video_record_file
 
 typedef struct _video_record_info
 {
-    uint32  file_size;      //Â¼ÏñÎÄ¼þµÄ´óÐ¡
-    char    *file_name;     //Â¼ÏñÎÄ¼þÃû
+    uint32  file_size;      //Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä´ï¿½Ð¡
+    char    *file_name;     //Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 }video_record_info;
 
 
 typedef struct _video_record_handle
 {
-    uint8   run_flag;   //Æô¶¯Óë¹Ø±Õ±êÖ¾
-    uint8   cyc_flag;   //ÊÇ·ñÑ­»·Â¼Ïñ
-    uint8   stop_flag;  //Â¼ÏñÐ´ÎÄ¼þÊ§°Ü±êÖ¾
-    uint8   use_file_index; //µ±Ç°ÕýÔÚÊ¹ÓÃµÄÎÄ¼þË÷Òý
-    uint8   rec_save_index; //±£´æµÄÎÄ¼þË÷Òý
-    void    *record_file_queue;  //Â¼Ïñ±àÂëÊý¾ÝµÄ¶ÓÁÐ¡£
+    uint8   run_flag;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±Õ±ï¿½Ö¾
+    uint8   cyc_flag;   //ï¿½Ç·ï¿½Ñ­ï¿½ï¿½Â¼ï¿½ï¿½
+    uint8   stop_flag;  //Â¼ï¿½ï¿½Ð´ï¿½Ä¼ï¿½Ê§ï¿½Ü±ï¿½Ö¾
+    uint8   use_file_index; //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+    uint8   rec_save_index; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+    void    *record_file_queue;  //Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ¶ï¿½ï¿½Ð¡ï¿½
     video_record_file record_file[2];
     char    record_file_name[2][MAX_RECORD_FILE_NAME_LEN];
     char    record_dir_name[MAX_RECORD_FILE_NAME_LEN];
-    uint32  record_total_size;  //¿¨¿ÉÂ¼ÏñµÄ¿Õ¼ä´óÐ¡£¬°üÀ¨Î´ÓÃ¿Õ¼äºÍÒÑ¾­Â¼ÏñµÄ¿Õ¼ä
-    uint32  used_record_file_size;   //Â¼ÏñÒÑ¾­Ê¹ÓÃµÄ¶àÉÙ¿Õ¼ä
-    uint32  record_time;             //Â¼ÏñÎÄ¼þµÄ×î´óÊ±³¤
-    uint32  record_end_time;        //µ±Ç°Â¼ÏñÎÄ¼þµÄ½áÊøÊ±¼ä
+    uint32  record_total_size;  //ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ä¿Õ¼ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½Ã¿Õ¼ï¿½ï¿½ï¿½Ñ¾ï¿½Â¼ï¿½ï¿½Ä¿Õ¼ï¿½
+    uint32  used_record_file_size;   //Â¼ï¿½ï¿½ï¿½Ñ¾ï¿½Ê¹ï¿½ÃµÄ¶ï¿½ï¿½Ù¿Õ¼ï¿½
+    uint32  record_time;             //Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    uint32  record_end_time;        //ï¿½ï¿½Ç°Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
     uint32  video_start_time;
     void    *mux_handle;
     void    *save_mux_handle;
@@ -120,7 +120,7 @@ video_record_info *video_record_malloc_file_queue(int file_len)
 
 /**
  * NAME         video_record_flush_record_file
- * @BRIEF	±£´æÁÙÊ± ÎÄ¼þ
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê± ï¿½Ä¼ï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -148,7 +148,7 @@ void video_record_flush_record_file(int index)
 
 /**
  * NAME         video_record_del_record_file
- * @BRIEF	É¾³ýÁÙÊ± ÎÄ¼þ
+ * @BRIEF	É¾ï¿½ï¿½ï¿½ï¿½Ê± ï¿½Ä¼ï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -174,7 +174,7 @@ void video_record_del_record_file(int index)
 
 /**
  * NAME         video_record_create_record_file
- * @BRIEF	´´½¨ÁÙÊ± ÎÄ¼þÃû
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê± ï¿½Ä¼ï¿½ï¿½ï¿½
  * @PARAM	index
  * @RETURN	0-->fail; 1-->ok
  * @RETVAL	
@@ -184,7 +184,7 @@ uint8 video_record_create_record_file(int index)
 {
 	char res[1000] = {0};
 	
-    pvideo_record_ctrl->record_file[index].record_file = open(anyka_video_tmp_record_file[index], O_RDWR | O_CREAT | O_TRUNC);
+    pvideo_record_ctrl->record_file[index].record_file = open(anyka_video_tmp_record_file[index], O_RDWR | O_CREAT | O_TRUNC,S_IRUSR|S_IWUSR);
     if(pvideo_record_ctrl->record_file[index].record_file <= 0)
     {
 		/** read-only file system **/
@@ -214,7 +214,7 @@ uint8 video_record_create_record_file(int index)
         return 0;
     }
 	
-    pvideo_record_ctrl->record_file[index].index_file = open(anyka_video_tmp_index_file[index], O_RDWR | O_CREAT | O_TRUNC);
+    pvideo_record_ctrl->record_file[index].index_file = open(anyka_video_tmp_index_file[index], O_RDWR | O_CREAT | O_TRUNC,S_IRUSR|S_IWUSR);
     if(pvideo_record_ctrl->record_file[index].index_file <= 0)
     {
         close(pvideo_record_ctrl->record_file[index].record_file);
@@ -229,9 +229,9 @@ uint8 video_record_create_record_file(int index)
 
 /**
  * NAME         video_record_get_record_file_name
- * @BRIEF	µÃµ½Â¼ÏñÎÄ¼þÃû£¬ÒÔÊ±¼äÎªÒÀ¾Ý
+ * @BRIEF	ï¿½Ãµï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
  * @PARAM	index
-                   file_time  ÎÄ¼þ´´½¨Ê±¼ä
+                   file_time  ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
  * @RETURN	void
  * @RETVAL	
  */
@@ -239,12 +239,12 @@ void video_record_get_record_file_name(int index,time_t file_time)
 {
     video_record_info *new_note;
 
-	//¹¹ÔìÎÄ¼þÃû£¬·µ»Øºórecord_dir_name ´æ·ÅµÄÊÇÂ¼ÏñÎÄ¼þ¾ø¶ÔÂ·¾¶ÎÄ¼þÃû
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½record_dir_name ï¿½ï¿½Åµï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
     video_fs_get_video_record_name(pvideo_record_ctrl->record_dir_name, pvideo_record_ctrl->record_file_name[index], ".mp4",file_time);
     new_note = video_record_malloc_file_queue(strlen(pvideo_record_ctrl->record_file_name[index]) + 4);
 
     strcpy(new_note->file_name , pvideo_record_ctrl->record_file_name[index]);
-    new_note->file_size =0 ;//³õÊ¼ÎÄ¼þ³ß´ç£¬ÎÄ¼þÂ¼ÖÆÍê³ÉÊ±¸üÐÂ
+    new_note->file_size =0 ;//ï¿½ï¿½Ê¼ï¿½Ä¼ï¿½ï¿½ß´ç£¬ï¿½Ä¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
     if(0 == anyka_queue_push(pvideo_record_ctrl->record_file_queue, (void *)new_note))
     {
         video_record_free_file_queue(new_note);
@@ -253,8 +253,8 @@ void video_record_get_record_file_name(int index,time_t file_time)
 
 /**
  * NAME         video_record_update_use_size
- * @BRIEF	µ±±¨¾¯Â¼ÏñµÄÊ¹ÓÃÁË¿Õ¼äºó£¬Òª¸üÐÂÕâ¸öÂ¼Ïñ´óÐ¡
- * @PARAM	int file_size ±¨¾¯ÎÄ¼þ´óÐ¡
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ë¿Õ¼ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ð¡
+ * @PARAM	int file_size ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
  * @RETURN	void*
  * @RETVAL	
  */
@@ -273,7 +273,7 @@ void video_record_update_use_size(int file_size)
 
 /**
  * NAME         video_record_manage_file
- * @BRIEF	¹ÜÀíÎÄ¼þµÄÏß³Ì
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ß³ï¿½
  * @PARAM	void
  * @RETURN	void*
  * @RETVAL	
@@ -297,13 +297,13 @@ void* video_record_manage_file(void *arg)
                 int queue_amount ; 
                 
                 video_record_info *precord_info;
-                //ÏÈ¹Ø±ÕÇ°Ò»¸öºÏ³É¾ä±ú£¬
+                //ï¿½È¹Ø±ï¿½Ç°Ò»ï¿½ï¿½ï¿½Ï³É¾ï¿½ï¿½ï¿½ï¿½
                 mux_close(pvideo_record_ctrl->save_mux_handle);
                 pvideo_record_ctrl->save_mux_handle = NULL;
                 stat(anyka_video_tmp_record_file[pvideo_record_ctrl->rec_save_index], &statbuf);
-                //¸üÐÂÕâ¸öÎÄ¼þµÄ´óÐ¡ µ½¶ÓÁÐÖÐ
-                cur_file_size = (statbuf.st_size >> 10) + ((statbuf.st_size & 1023) ? 1 : 0);//¸üÐÂÎÄ¼þ´óÐ¡ÏµÍ³µ½¶ÓÁÐ.
-				//ÏÂÒ»¸öÎÄ¼þÒÑ¾­Èë¶ÓÁÐ£¬Â¼ÖÆÎÄ¼þÊÇµ¹ÊýµÚ¶þ¸ö
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä´ï¿½Ð¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                cur_file_size = (statbuf.st_size >> 10) + ((statbuf.st_size & 1023) ? 1 : 0);//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+				//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½
 				queue_amount = anyka_queue_items(pvideo_record_ctrl->record_file_queue);
 				precord_info = anyka_queue_get_index_item(pvideo_record_ctrl->record_file_queue, queue_amount-2);
 //                precord_info = anyka_queue_get_tail_note(pvideo_record_ctrl->record_file_queue);
@@ -314,23 +314,23 @@ void* video_record_manage_file(void *arg)
                 pvideo_record_ctrl->used_record_file_size += cur_file_size;
                 pthread_mutex_unlock(&pvideo_record_ctrl->video_record_mutex);
                 //pvideo_record_ctrl->record_total_size -= cur_file_size;
-                //Èç¹û¿Õ¼äÂúÁË£¬ÓÖ²»ÊÇÑ­»·Â¼Ïñ£¬½«Í£Ö¹Â¼Ïñ
+                //ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Ö²ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½Â¼ï¿½ñ£¬½ï¿½Í£Ö¹Â¼ï¿½ï¿½
                 if((pvideo_record_ctrl->cyc_flag == 0) && (pvideo_record_ctrl->used_record_file_size >= pvideo_record_ctrl->record_total_size))
                 {
                     pvideo_record_ctrl->stop_flag = 1;
                 }
             }
           
-            //´Ë´¦»ñÈ¡ÏÂÒ»¸öÂ¼Ïñ¿ªÊ¼ÎÄ¼þÃû
+            //ï¿½Ë´ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½Â¼ï¿½ï¿½Ê¼ï¿½Ä¼ï¿½ï¿½ï¿½
 //            video_record_get_record_file_name(pvideo_record_ctrl->use_file_index);
 
             /*************************************************************
-                    		ÏÈ¹Ø±ÕÇ°Ò»¸öÎÄ¼þ£¬ÔÙ´ò¿ªÐÂÒ»¸öÎÄ¼þ
+                    		ï¿½È¹Ø±ï¿½Ç°Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½
                     	**************************************************************/
 			video_record_flush_record_file(pvideo_record_ctrl->rec_save_index);
             video_record_create_record_file(pvideo_record_ctrl->rec_save_index);
        
-            //Èç¹ûÊÇÑ­»·Â¼ÏñµÄ»°£¬¿Õ¼äÒÑ¾­Âúºó£¬½«É¾³ýµÚÒ»¸öÎÄ¼þ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½Â¼ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ó£¬½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½
             if(pvideo_record_ctrl->cyc_flag)
             {
                while(pvideo_record_ctrl->used_record_file_size >= pvideo_record_ctrl->record_total_size)
@@ -361,7 +361,7 @@ void* video_record_manage_file(void *arg)
 
 /**
  * NAME         video_record_get_video_data
- * @BRIEF	ÊÓÆµÊý¾ÝµÄ»Øµ÷
+ * @BRIEF	ï¿½ï¿½Æµï¿½ï¿½ï¿½ÝµÄ»Øµï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -379,7 +379,7 @@ void video_record_get_video_data(void *param, T_STM_STRUCT *pstream)
 
     if(pvideo_record_ctrl->record_end_time == 0)
     {
-        //É¾³ý²»ÊÇµÚÒ»¸öIÖ¡µÄÍ¼Ïñ
+        //É¾ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½ï¿½IÖ¡ï¿½ï¿½Í¼ï¿½ï¿½
         if(pstream->iFrame == 0)
         {
             anyka_print("[%s:%d] we will pass the first P frmae!\n",  __func__, __LINE__);
@@ -398,7 +398,7 @@ void video_record_get_video_data(void *param, T_STM_STRUCT *pstream)
         pvideo_record_ctrl->record_end_time = pvideo_record_ctrl->record_time + pstream->timestamp;
     }
 	
-	//Èç¹ûÂ¼ÏñÊ±¼äµ½£¬²¢ÇÒÕâ¸öÖ¡ÎªIÖ¡£¬²Å¿ªÊ¼Æô¶¯ÏÂÒ»¸öÂ¼Ïñ
+	//ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½äµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ÎªIÖ¡ï¿½ï¿½ï¿½Å¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â¼ï¿½ï¿½
     if((pvideo_record_ctrl->record_end_time <= pstream->timestamp) && pstream->iFrame)
     {
         pvideo_record_ctrl->save_mux_handle = pvideo_record_ctrl->mux_handle;
@@ -447,7 +447,7 @@ void video_record_get_video_data(void *param, T_STM_STRUCT *pstream)
 
 /**
  * NAME         video_record_get_audio_data
- * @BRIEF	ÒôÆµÊý¾ÝµÄ»Øµ÷
+ * @BRIEF	ï¿½ï¿½Æµï¿½ï¿½ï¿½ÝµÄ»Øµï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -460,7 +460,7 @@ void video_record_get_audio_data(T_VOID *param, T_STM_STRUCT *pstream)
         return;
     }
     
-    //É¾³ýËùÓÐµÄÔÚÊÓÆµÇ°ÃæµÄÒôÆµÖ¡
+    //É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ÆµÇ°ï¿½ï¿½ï¿½ï¿½ï¿½ÆµÖ¡
     if(pvideo_record_ctrl->record_end_time == 0)
     {
         return ;
@@ -479,7 +479,7 @@ void video_record_get_audio_data(T_VOID *param, T_STM_STRUCT *pstream)
 
 /**
  * NAME         video_record_insert_old_file
- * @BRIEF	ÏòÂ¼ÏñÎÄ¼þÃû¶ÓÁÐ²åÈëÒ»¸öÐÂµÄÎÄ¼þÃû
+ * @BRIEF	ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Âµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -504,7 +504,7 @@ void video_record_insert_old_file(char *file_name, int file_size,int type)
 
 /**
  * NAME         video_record_compare_record_name
- * @BRIEF	±È½ÏÂ¼ÏñÎÄ¼þÃû
+ * @BRIEF	ï¿½È½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -526,9 +526,9 @@ int video_record_compare_record_name(void *item1, void *item2)
 
 /**
  * NAME         video_record_check_run
- * @BRIEF	¼ì²éÊÇ·ñÕýÔÚÂ¼Ïñ
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
  * @PARAM	none 
- * @RETURN	0·µ»Ø²»ÔÚÂ¼Ïñ£¬1·µ»ØÕýÔÚÂ¼Ïñ
+ * @RETURN	0ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½Â¼ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
  * @RETVAL	
  */
 
@@ -540,12 +540,12 @@ int video_record_check_run(void)
 
 /**
 * @brief  	video_record_check_dir_illegal
-* 			¼ì²éÄ¿Â¼ÊÇ·ñ·ûºÏ¹æ·¶: ÒÔ/ ½áÎ²Ëµ
+* 			ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Ç·ï¿½ï¿½ï¿½Ï¹æ·¶: ï¿½ï¿½/ ï¿½ï¿½Î²Ëµ
 * @date 	2015/7
-* @param:	const char * dir£¬ ´ý¼ì²éµÄÄ¿Â¼
+* @param:	const char * dirï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 			
 * @return 	int
-* @retval 	·ûºÏ¹æ·¶·µ»Ø0£¬ ·ñÔò·µ»Ø1
+* @retval 	ï¿½ï¿½ï¿½Ï¹æ·¶ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ ï¿½ï¿½ï¿½ò·µ»ï¿½1
 */
 static int video_record_check_dir_illegal(const char *dir)
 {
@@ -558,9 +558,9 @@ static int video_record_check_dir_illegal(const char *dir)
 
 /**
  * NAME         video_record_start
- * @BRIEF	Â¼ÏñÆô¶¯
+ * @BRIEF	Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	void
- * @RETURN	-1·µ»ØÊ§°Ü£¬1·µ»Ø³É¹¦
+ * @RETURN	-1ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½1ï¿½ï¿½ï¿½Ø³É¹ï¿½
  * @RETVAL	
  */
 int video_record_start(void)
@@ -573,14 +573,14 @@ int video_record_start(void)
 	anyka_print("[%s:%d] #### Anyka_Record ###\n", __func__, __LINE__);
 
 
-    //ÏÈ¼ì²éSD¿¨ÊÇ·ñ´æÔÚ
+    //ï¿½È¼ï¿½ï¿½SDï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
     if(check_sdcard() < 0)
     {
         anyka_print("[%s:%d] it fails to check sd\n", __func__, __LINE__);
         return -1;
     }
 
-	if( !video_record_check_dir_illegal(pvideo_record_setting->recpath) )//Ä¿Â¼²»·ûºÏ¹æÔò£¬Ôö¼Ó/
+	if( !video_record_check_dir_illegal(pvideo_record_setting->recpath) )//Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/
 	{
 		sprintf(record_dir, "%s/", pvideo_record_setting->recpath);
         anyka_print("[%s:%d] the dir %s lost /, add it: %s\n", __func__, __LINE__, 
@@ -590,9 +590,9 @@ int video_record_start(void)
 		strcpy(record_dir, pvideo_record_setting->recpath);
 
 	anyka_print("[%s:%d] dir: %s\n", __func__, __LINE__, record_dir);
-    //´´½¨Â¼ÏñÎÄ¼þ¼Ð
+    //ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
     video_fs_create_dir(record_dir);
-	//´´½¨ÁÙÊ±ÎÄ¼þ¼Ð
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä¼ï¿½ï¿½ï¿½
 	video_fs_create_dir(RECORD_TMP_PATH); 
     pvideo_record_ctrl = (Pvideo_record_handle)malloc(sizeof(video_record_handle));
     if(pvideo_record_ctrl == NULL)
@@ -607,20 +607,20 @@ int video_record_start(void)
     pvideo_record_ctrl->cyc_flag = pvideo_record_setting->save_cyc_flag;
     pvideo_record_ctrl->video_start_time = 0;
 
-    //³õÊ¼»¯Â¼Ïñ¶ÓÁÐ
+    //ï¿½ï¿½Ê¼ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
     pvideo_record_ctrl->record_file_queue = anyka_queue_init(1500);
     if(pvideo_record_ctrl->record_file_queue == NULL)
     {
         goto VIDEO_RECORD_START_ERR;
     }
-    //Èç¹ûÊÇÑ­»·Â¼Ïñ£¬×Ü´óÐ¡»¹Òª¼ÓÉÏÖ®Ç°Â¼ÏñµÄÎÄ¼þ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ü´ï¿½Ð¡ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ö®Ç°Â¼ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 	pvideo_record_ctrl->record_total_size = video_fs_get_free_size(record_dir);
     pvideo_record_ctrl->used_record_file_size = 
 				video_fs_init_record_list(record_dir, video_record_insert_old_file, RECORD_APP_PLAN);
 
     anyka_print("[%s:%d] the disk free size:%u, record size:%u)\n", __func__, __LINE__,
         		pvideo_record_ctrl->record_total_size, pvideo_record_ctrl->used_record_file_size);
-    //¶ÔÒÔÇ°Â¼ÏñµÄÎÄ¼þ½øÐÐÅÅÐò£¬°´Ê±¼äÏÈºóË³Ðò£¬·½±ãÑ­»·Â¼ÏñÊ±É¾³ý¾ÉÎÄ¼þ
+    //ï¿½ï¿½ï¿½ï¿½Ç°Â¼ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò£¬°ï¿½Ê±ï¿½ï¿½ï¿½Èºï¿½Ë³ï¿½ò£¬·ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½Â¼ï¿½ï¿½Ê±É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
     anyka_queue_sort(pvideo_record_ctrl->record_file_queue, video_record_compare_record_name);
     if(pvideo_record_ctrl->cyc_flag == 0)
     {
@@ -649,11 +649,11 @@ int video_record_start(void)
 	pvideo_record_ctrl->record_end_time = 0;
     pvideo_record_ctrl->save_mux_handle = NULL;
 
-	//´ËÊ±record_dir_name ´æ·ÅµÄÊÇÂ·¾¶
+	//ï¿½ï¿½Ê±record_dir_name ï¿½ï¿½Åµï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	strcpy(pvideo_record_ctrl->record_dir_name, record_dir);
-//	video_record_get_record_file_name(pvideo_record_ctrl->use_file_index);//´Ë´¦»ñÈ¡Â¼Ïñ¿ªÊ¼Ê±¼ä
+//	video_record_get_record_file_name(pvideo_record_ctrl->use_file_index);//ï¿½Ë´ï¿½ï¿½ï¿½È¡Â¼ï¿½ï¿½Ê¼Ê±ï¿½ï¿½
 	
-    //´´½¨Á½×éÂ¼ÏñÁÙÊ±ÎÄ¼þ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä¼ï¿½
     if(0 == video_record_create_record_file(0))
     {
         goto VIDEO_RECORD_START_ERR;
@@ -664,7 +664,7 @@ int video_record_start(void)
         goto VIDEO_RECORD_START_ERR;
     }
 
-    //¿ªÂ¼Ïñ´´½¨£¬±£´æ£¬É¾³ýÎÄ¼þµÄÏà¹ØÏß³Ì
+    //ï¿½ï¿½Â¼ï¿½ñ´´½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬É¾ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
     sem_init(&pvideo_record_ctrl->sem_create_file, 0, 0);
     pthread_mutex_init(&pvideo_record_ctrl->video_record_mutex, NULL);
     if ((ret = anyka_pthread_create(&(pvideo_record_ctrl->create_record_handle_id),
@@ -676,7 +676,7 @@ int video_record_start(void)
     }
 
 
-    //³õÊ¼»¯Â¼Ïñ²ÎÊý
+    //ï¿½ï¿½Ê¼ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
     T_MUX_INPUT mux_input;
     
     mux_input.m_MediaRecType = MEDIALIB_REC_3GP;//MEDIALIB_REC_AVI_NORMAL;
@@ -689,10 +689,10 @@ int video_record_start(void)
     mux_input.m_eAudioType = MEDIALIB_AUDIO_AMR;//MEDIALIB_AUDIO_AAC;
     mux_input.m_nSampleRate = 8000;
     
-    //´ò¿ªÒôÆµÓëÊÓÆµºÏ³É¿â
+    //ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Æµï¿½Ï³É¿ï¿½
     pvideo_record_ctrl->mux_handle= mux_open(&mux_input, pvideo_record_ctrl->record_file[pvideo_record_ctrl->use_file_index].record_file, 
         pvideo_record_ctrl->record_file[pvideo_record_ctrl->use_file_index].index_file);
-    //¿ªÊ¼ÒôÆµÓëÊÓÆµÏà¹ØµÄ²É¼¯Ïß³Ì
+    //ï¿½ï¿½Ê¼ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ØµÄ²É¼ï¿½ï¿½ß³ï¿½
     video_add(video_record_get_video_data, pvideo_record_ctrl, FRAMES_ENCODE_RECORD, pvideo_record_setting->savefilekbps);
     audio_add(SYS_AUDIO_ENCODE_AMR, video_record_get_audio_data, (void *)pvideo_record_ctrl);
     pvideo_record_ctrl->stop_flag = 0;
@@ -714,7 +714,7 @@ VIDEO_RECORD_START_ERR:
 
 /**
  * NAME         video_record_stop
- * @BRIEF	Â¼ÏñÍ£Ö¹£¬½«ÊÍ·ÅËùÓÐµÄÂ¼ÏñÏà¹ØµÄ×ÊÔ´
+ * @BRIEF	Â¼ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ðµï¿½Â¼ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Ô´
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -752,7 +752,7 @@ void video_record_stop(void)
 
 /**
  * NAME         video_record_err_stop
- * @BRIEF	Èç¹ûÂ¼Ïñ¹ý³ÌÖÐÊ§°Ü£¬½«Í£Ö¹Â¼Ïñ£¬ÉèÖÃ±êÖ¾£¬µÈ´ýÂ¼Ïñ½áÊø
+ * @BRIEF	ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½Í£Ö¹Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½Ö¾ï¿½ï¿½ï¿½È´ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	
@@ -770,7 +770,7 @@ void video_record_err_stop(void)
 
 /**
  * NAME         video_record_main_loop
- * @BRIEF	¼Æ»®Â¼ÏñµÄÆô¶¯Óë¹Ø±Õ£¬Í¨¹ý¶ÁÅäÖÃÎÄ¼þ£¬ÒÔÊ±¼äÎªÒÀ¾ÝÆô¶¯»òÍ£Ö¹
+ * @BRIEF	ï¿½Æ»ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±Õ£ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ö¹
  * @PARAM	void
  * @RETURN	void
  * @RETVAL	

@@ -19,7 +19,7 @@ LOCAL_MODULE := smartlink
 
 LOCAL_CFLAGS := -D__LINUX__ -Wall
 
-PREFIX := arm-none-linux-gnueabi-
+PREFIX := arm-anykav200-linux-uclibcgnueabi-
 
 LOCAL_C_INCLUDES :=	./include \
 					../anyka_ipc/cloud/tencent/include \

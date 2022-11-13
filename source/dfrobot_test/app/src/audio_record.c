@@ -1,8 +1,8 @@
 #include "common.h"
 
 /**************************************************************
-´ËÄ£¿éÖ»Íê³ÉÂ¼Òô£¬Ä¿Ç°ÒÔAMR»òWAVÎÄ¼þ¸ñÊ½ÎªÊä³ö£¬µ«ÊÇ±àÂë¿ÉÒÔÖ§³ÖAMR-NB,MP3,WAVÕâ¼¸ÖÖ¸ñÊ½£¬
-Èç¹ûÐèÒªÆäËü¸ñÊ½£¬ÇëÏò°²¿­ÉêÇëÏàÓ¦µÄÒôÆµ¿â
+ï¿½ï¿½Ä£ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½AMRï¿½ï¿½WAVï¿½Ä¼ï¿½ï¿½ï¿½Ê½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½AMR-NB,MP3,WAVï¿½â¼¸ï¿½Ö¸ï¿½Ê½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ò°²¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½
 
 ***************************************************************/
 typedef T_U32	FOURCC;    /* a four character code */
@@ -131,10 +131,10 @@ static T_S32 write_wav_head( T_S32 fd, T_U32 nChannels, T_U32 nSampleRate,
 
 /**
  * NAME         audio_record_start
- * @BRIEF     ¿ªÊ¼Æô¶¯Â¼Òô¹¦ÄÜ£¬Ä¿Ç°Â¼ÏñÖ»±£´æ Ò»¸öÎÄ¼þ£¬²¢²»×öÎÄ¼þ·ÖÀë£¬
+ * @BRIEF     ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½Ä¿Ç°Â¼ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ë£¬
                    
- * @PARAM   audio_path  :Â¼ÒôÎÄ¼þµÄÂ·¾¶
-            ext_name    :Â¼ÒôÎÄ¼þºó×ºÃû(".wav" or ".amr")   
+ * @PARAM   audio_path  :Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+            ext_name    :Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½×ºï¿½ï¿½(".wav" or ".amr")   
  * @RETURN  void 
  * @RETVAL  
  */
@@ -144,7 +144,7 @@ void audio_record_start(char *audio_path, char *ext_name)
     char file_name[200];
     const T_U8 amrHeader[]= "#!AMR\n";
 #if 0
-    //ÏÈ¼ì²éSD¿¨ÊÇ·ñ´æÔÚ
+    //ï¿½È¼ï¿½ï¿½SDï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
     if(check_sdcard() < 0)
     {
         anyka_print("[%s:%d] fails to check sd\n", __func__, __LINE__);
@@ -166,7 +166,7 @@ void audio_record_start(char *audio_path, char *ext_name)
     paudio_record_ctrl->record_size = 0;
     video_fs_create_dir(audio_path);
     video_fs_get_audio_record_name(audio_path, file_name, ext_name);
-    paudio_record_ctrl->fd = open( file_name ,  O_RDWR | O_CREAT | O_TRUNC );
+    paudio_record_ctrl->fd = open( file_name ,  O_RDWR | O_CREAT | O_TRUNC ,S_IRUSR|S_IWUSR);
     if(paudio_record_ctrl->fd < 0)
     {        
         anyka_print("[%s:%d] fails to create the record file!\n", __func__, __LINE__);
@@ -192,9 +192,9 @@ void audio_record_start(char *audio_path, char *ext_name)
 
 /**
  * NAME         audio_record_stop
- * @BRIEF     Í£Ö¹Â¼Òô¹¦ÄÜ
+ * @BRIEF     Í£Ö¹Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                    
- * @PARAM   file_name   Â¼ÒôÎÄ¼þµÄÈ«Â·¾¶Ãû
+ * @PARAM   file_name   Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ï¿½ï¿½
  * @RETURN  void 
  * @RETVAL  
  */

@@ -187,14 +187,14 @@ static T_BOOL Transc_WriteASAFile(unsigned long data[], unsigned long len)
         return AK_FALSE;
     }   
     
-    fd_config = open("/etc/jffs2/tencent.conf", O_RDWR|O_CREAT|O_TRUNC);
+    fd_config = open("/etc/jffs2/tencent.conf", O_RDWR|O_CREAT|O_TRUNC,S_IRUSR|S_IWUSR);
     if(fd_config<0)
     {
         printf("open tencentconf file error!!!\n");
         exit(1);
     }
   
-    lseek(fd_config,0,SEEK_SET);//½«Ô´ÎÄ¼þµÄ¶ÁÐ´Ö¸ÕëÒÆµ½ÆðÊ¼Î»ÖÃ  
+    lseek(fd_config,0,SEEK_SET);//ï¿½ï¿½Ô´ï¿½Ä¼ï¿½ï¿½Ä¶ï¿½Ð´Ö¸ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ê¼Î»ï¿½ï¿½  
     
     if (write(fd_config,sern_p,len) != len) 
     {

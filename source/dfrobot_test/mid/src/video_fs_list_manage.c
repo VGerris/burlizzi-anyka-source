@@ -7,7 +7,7 @@ static void *record_replay_queue = NULL;
 
   
 
-//ËùÓÐÂ¼ÏñÓ¦ÓÃ¶ÔÓ¦µÄÂ¼ÏñÁÐ±íÎÄ¼þ,¹©»Ø·ÅÊ¹ÓÃ
+//ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ó¦ï¿½Ã¶ï¿½Ó¦ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ä¼ï¿½,ï¿½ï¿½ï¿½Ø·ï¿½Ê¹ï¿½ï¿½
 static char g_video_list_file_name[RECORD_APP_NUM][32]=
 {
 	{"/tmp/record.list"},
@@ -31,16 +31,16 @@ static Precord_replay_info video_fs_list_malloc_file_queue(int file_len)
 
 /**
  * NAME         video_fs_list_compare_record_name
- * @BRIEF	±È½ÏÁ½¸ö¼ÇÂ¼ÎÄ¼þÃû´óÐ¡
+ * @BRIEF	ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡
   
  * @PARAM    item1
                     item2
- * @RETURN	±È½Ï½á¹û
+ * @RETURN	ï¿½È½Ï½ï¿½ï¿½
  * @RETVAL	
                    <0 item1<item2,
                    =0 item1=item2
                    >0 item1>item2
-                   ÕâÀïµÄitemÖ¸µÄÊÇitem×îÖÕÖ¸ÏòµÄÎÄ¼þÃû
+                   ï¿½ï¿½ï¿½ï¿½ï¿½itemÖ¸ï¿½ï¿½ï¿½ï¿½itemï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
  */
 
 static int video_fs_list_compare_record_name(void *item1, void *item2)
@@ -54,11 +54,11 @@ static int video_fs_list_compare_record_name(void *item1, void *item2)
 
 /**
  * NAME         video_fs_list_get_info
- * @BRIEF	µÃµ½ÏàÓ¦ÎÄ¼þµÄÂ¼ÏñÊ±³¤
+ * @BRIEF	ï¿½Ãµï¿½ï¿½ï¿½Ó¦ï¿½Ä¼ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½
   
  * @PARAM    file_name  
-                   type          Ó¦ÓÃÀàÐÍ(¼Æ»®Â¼Ïñ¡¢¸æ¾¯Â¼ÏñµÈ)
- * @RETURN	ÎÄ¼þµÄÂ¼ÏñÏà¹ØÐÅÏ¢
+                   type          Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Æ»ï¿½Â¼ï¿½ñ¡¢¸æ¾¯Â¼ï¿½ï¿½ï¿½)
+ * @RETURN	ï¿½Ä¼ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
  * @RETVAL	
  */
 
@@ -80,12 +80,12 @@ static Precord_replay_info video_fs_list_get_info(char *file_name , int type)
     pnew_record = video_fs_list_malloc_file_queue(file_len + 4);
     pnew_record->record_time =record_time;
 
-	//ÏÂÃæ´ÓÎÄ¼þÃû»ñÈ¡ÊÓÆµÆðÊ¼Ê±¼ä
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Æµï¿½ï¿½Ê¼Ê±ï¿½ï¿½
 	cfg = video_fs_get_file_name_cfg();
-	//¹¹ÔìÈ¡Ê±¼äµÄ¸ñÊ½»¯´® for CYC_DV_20150908-090511.mp4
+	//ï¿½ï¿½ï¿½ï¿½È¡Ê±ï¿½ï¿½Ä¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ for CYC_DV_20150908-090511.mp4
 	sprintf(file_name_fmt, "%s%%4c%%2c%%2c-%%2c%%2c%%2c%s", cfg[type].prefix,cfg[type].posfix);
 	memset(s_time, 0, sizeof(s_time));	
-	//È¥µôÎÄ¼þÃûÂ·¾¶
+	//È¥ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	for(i=0 ;i< file_len;i++)
 	{
 		if (file_name[file_len-1-i] =='/')
@@ -114,11 +114,11 @@ static Precord_replay_info video_fs_list_get_info(char *file_name , int type)
 
 /**
  * NAME         video_fs_list_insert_item
- * @BRIEF	½«Ö¸¶¨µÄÎÄ¼þ²åÈëµ½¶ÓÁÐ
+ * @BRIEF	ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½ï¿½
   
- * @PARAM    file_name   ÎÄ¼þÃû
-                    file_size    ÎÄ¼þ´óÐ¡
-                    type        Ó¦ÓÃÀàÐÍ(¼Æ»®Â¼Ïñ¡¢¸æ¾¯Â¼ÏñµÈ)
+ * @PARAM    file_name   ï¿½Ä¼ï¿½ï¿½ï¿½
+                    file_size    ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
+                    type        Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Æ»ï¿½Â¼ï¿½ñ¡¢¸æ¾¯Â¼ï¿½ï¿½ï¿½)
  * @RETURN	NONE
  * @RETVAL	
  */
@@ -130,7 +130,7 @@ static void video_fs_list_insert_item(char *file_name, int file_size,int type)
 
     if (pnew_record ==NULL)
     	return ;
-    if(pnew_record->recrod_start_time < 1418954000) //Ö»È¡2014-12-19 ºóµÄÎÄ¼þ
+    if(pnew_record->recrod_start_time < 1418954000) //Ö»È¡2014-12-19 ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
     {
         video_fs_list_free_file_queue(pnew_record);
         return ;
@@ -145,10 +145,10 @@ static void video_fs_list_insert_item(char *file_name, int file_size,int type)
 
 /**
  * NAME         video_fs_list_init_list
- * @BRIEF	Í³¼ÆÖ¸¶¨Ä¿Â¼ÏÂµÄÂ¼ÏñÎÄ¼þ£¬²¢½«×¡´¦±£´æÔÚÁÙÊ±ÎÄ¼þÖÐ
+ * @BRIEF	Í³ï¿½ï¿½Ö¸ï¿½ï¿½Ä¿Â¼ï¿½Âµï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä¼ï¿½ï¿½ï¿½
   
- * @PARAM    in_dir         Ä¿Â¼ÐÅÏ¢         
-                    save_file    ±£´æÎÄ¼þÃû
+ * @PARAM    in_dir         Ä¿Â¼ï¿½ï¿½Ï¢         
+                    save_file    ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
                     type: 0-->video record, 1-->alarm record
  * @RETURN	NONE
  * @RETVAL	
@@ -159,7 +159,7 @@ static void video_fs_list_init_list(char * in_dir, char *save_file, unsigned sho
     int file_record_list;
     Precord_replay_info pcur_record;
 	
-    file_record_list = open(save_file,  O_RDWR | O_CREAT | O_TRUNC );
+    file_record_list = open(save_file,  O_RDWR | O_CREAT | O_TRUNC,S_IRUSR|S_IWUSR );
     if(file_record_list < 0)
     {
         return ;
@@ -193,7 +193,7 @@ static void video_fs_list_init_list(char * in_dir, char *save_file, unsigned sho
 
 /**
  * NAME         video_fs_list_init
- * @BRIEF	Ó¦ÓÃ³ÌÐòÆô¶¯Ê±£¬´´½¨Â¼ÏñÎÄ¼þÁÐ±í
+ * @BRIEF	Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð±ï¿½
   
  * @PARAM    user                
  * @RETURN	NONE
@@ -214,10 +214,10 @@ void video_fs_list_init(  )
 
 /**
  * NAME         video_fs_list_insert_file
- * @BRIEF	Ìí¼ÓÒ»ÖÖÀàÐÍµÄÂ¼ÏñÎÄ¼þ£¬Ò»°ãÔÚ¼Æ»®Â¼Ïñ»ò±¨¾¯Â¼Ïñµ÷ÓÃ
+ * @BRIEF	ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ú¼Æ»ï¿½Â¼ï¿½ï¿½ò±¨¾ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
   
- * @PARAM    type                »Ø·ÅµÄÀàÐÍ
-                    file_name        Â¼ÏñÎÄ¼þÃû
+ * @PARAM    type                ï¿½Ø·Åµï¿½ï¿½ï¿½ï¿½ï¿½
+                    file_name        Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
  * @RETURN	NONE
  * @RETVAL	
  */
@@ -241,7 +241,7 @@ void video_fs_list_insert_file(char *file_name, int type)
     pcur_record = video_fs_list_get_info(file_name,type);
     if(pcur_record)
     {
-	    if(pcur_record->recrod_start_time >= 1418954000) //Ö»È¡2014-12-19 ºóµÄÎÄ¼þ
+	    if(pcur_record->recrod_start_time >= 1418954000) //Ö»È¡2014-12-19 ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 	    {
         file_buf = (char *)malloc(1024);
         
@@ -257,10 +257,10 @@ void video_fs_list_insert_file(char *file_name, int type)
 
 /**
  * NAME         video_fs_list_remove_file
- * @BRIEF	É¾³ýÒ»ÖÖÀàÐÍµÄÂ¼ÏñÎÄ¼þ£¬Ò»°ãÔÚ¼Æ»®Â¼Ïñ»ò±¨¾¯Â¼Ïñµ÷ÓÃ
+ * @BRIEF	É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ú¼Æ»ï¿½Â¼ï¿½ï¿½ò±¨¾ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
   
- * @PARAM    type                »Ø·ÅµÄÀàÐÍ
-                    file_name        Â¼ÏñÎÄ¼þÃû
+ * @PARAM    type                ï¿½Ø·Åµï¿½ï¿½ï¿½ï¿½ï¿½
+                    file_name        Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
  * @RETURN	NONE
  * @RETVAL	
  */
@@ -343,10 +343,10 @@ static void video_fs_list_format_info(char *buf, char *file_name, unsigned long 
 
 /**
  * NAME         video_fs_list_load_list
- * @BRIEF	 ¼ÓÔØÖ¸¶¨ÀàÐÍµÄËùÓÐ¼ÇÂ¼£¬²¢°´ÎÄ¼þÃû½øÐÐÅÅÐò
+ * @BRIEF	 ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   
- * @PARAM    type                »Ø·ÅµÄÀàÐÍ
- * @RETURN	·µ»Ø·ûºÏ»Ø·ÅµÄ¼ÇÂ¼Ö¸Õë
+ * @PARAM    type                ï¿½Ø·Åµï¿½ï¿½ï¿½ï¿½ï¿½
+ * @RETURN	ï¿½ï¿½ï¿½Ø·ï¿½ï¿½Ï»Ø·ÅµÄ¼ï¿½Â¼Ö¸ï¿½ï¿½
  * @RETVAL	
  */
 
@@ -385,7 +385,7 @@ static Precord_replay_info video_fs_list_load_list(int type)
             }
             else
             {
-            	//Ç°ºóÆ¬¶ÎÈ¥ÖØ, Í¨¹ý¼õÉÙÂ¼ÖÆÊ±¼äÊ¹½áÊøÊ±¼äÌáÇ°
+            	//Ç°ï¿½ï¿½Æ¬ï¿½ï¿½È¥ï¿½ï¿½, Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ç°
             	record_end_time = tail->recrod_start_time + tail->record_time;
             	
             	if (cur->recrod_start_time <= record_end_time)
@@ -405,28 +405,28 @@ static Precord_replay_info video_fs_list_load_list(int type)
 
 /**
  * NAME         video_fs_list_check_record
- * @BRIEF	 ¼ì²éµ±Ç°¼ÇÂ¼ÊÇ·ñÔÚÖ¸¶¨Ê±¼äÄÚ
+ * @BRIEF	 ï¿½ï¿½éµ±Ç°ï¿½ï¿½Â¼ï¿½Ç·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
   
- * @PARAM    start_time        »Ø·ÅµÄÆðÊ¼Ê±¼ä
-                    end_time         »Ø·ÅµÄ½áÊøÊ±¼ä
-                    cur                  µ±Ç°¼ì²éµÄ¼ÇÂ¼
- * @RETURN	1-->ÊÇÔÚÇø¼äÄÚ£¬0-->²»ÊÇÔÚÇø¼äÄÚ
+ * @PARAM    start_time        ï¿½Ø·Åµï¿½ï¿½ï¿½Ê¼Ê±ï¿½ï¿½
+                    end_time         ï¿½Ø·ÅµÄ½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+                    cur                  ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ä¼ï¿½Â¼
+ * @RETURN	1-->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½0-->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @RETVAL	
  */
 
 static int video_fs_list_check_record(unsigned long  start_time, unsigned long end_time, Precord_replay_info cur)
 {
-	/** ·Ö±ð±£´æµ±Ç°Â¼ÏñÎÄ¼þµÄÆðÊ¼Ê±¼äºÍ½áÊøÊ±¼ä **/
+	/** ï¿½Ö±ð±£´æµ±Ç°Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Ê±ï¿½ï¿½Í½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ **/
     int record_start, record_end;
 
     record_start = cur->recrod_start_time;
     record_end = cur->recrod_start_time + cur->record_time;
 
-	/** ²»ÔÚÇø¼äÄÚ **/
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ **/
     if(record_start >= end_time ||  record_end <= start_time)
     {
         return 0;
-    }/** ÔÚÇø¼äÄÚµÄ **/
+    }/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ **/
     else if(record_start < start_time)
     {
         cur->play_start = start_time - record_start;
@@ -448,12 +448,12 @@ static int video_fs_list_check_record(unsigned long  start_time, unsigned long e
 
 /**
  * NAME         video_fs_list_get_record
- * @BRIEF	 Í³¼Æ·ûºÏ»Ø·ÅµÄ¼ÇÂ¼ÐÅÏ¢
+ * @BRIEF	 Í³ï¿½Æ·ï¿½ï¿½Ï»Ø·ÅµÄ¼ï¿½Â¼ï¿½ï¿½Ï¢
   
- * @PARAM    start_time        »Ø·ÅµÄÆðÊ¼Ê±¼ä
-                    end_time         »Ø·ÅµÄ½áÊøÊ±¼ä
-                    type                »Ø·ÅµÄÀàÐÍ
- * @RETURN	·µ»Ø·ûºÏ»Ø·ÅµÄ¼ÇÂ¼Ö¸Õë
+ * @PARAM    start_time        ï¿½Ø·Åµï¿½ï¿½ï¿½Ê¼Ê±ï¿½ï¿½
+                    end_time         ï¿½Ø·ÅµÄ½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+                    type                ï¿½Ø·Åµï¿½ï¿½ï¿½ï¿½ï¿½
+ * @RETURN	ï¿½ï¿½ï¿½Ø·ï¿½ï¿½Ï»Ø·ÅµÄ¼ï¿½Â¼Ö¸ï¿½ï¿½
  * @RETVAL	
  */
 
@@ -463,7 +463,7 @@ Precord_replay_info video_fs_list_get_record(unsigned long  start_time, unsigned
     Precord_replay_info all_list;
 	int count = 0;
 
-	/** »ñÈ¡ËùÓÐÂ¼ÏñÎÄ¼þÐÅÏ¢ **/
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢ **/
 	all_list = video_fs_list_load_list(type);	//allocate mem no release
 	
 
@@ -473,7 +473,7 @@ Precord_replay_info video_fs_list_get_record(unsigned long  start_time, unsigned
         all_list = all_list->next;
         if(video_fs_list_check_record(start_time, end_time, cur))
         {
-        	if (clip_limit > 0) //ÐèÒªÏÞÖÆÆ¬¶Î¸öÊý
+        	if (clip_limit > 0) //ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Æ¬ï¿½Î¸ï¿½ï¿½ï¿½
         	{
 	        	if (count >= clip_limit)
 	        	{
@@ -507,11 +507,11 @@ Precord_replay_info video_fs_list_get_record(unsigned long  start_time, unsigned
 #if 0
 /**
 * @brief  video_fs_cmp_alarm_record_file
-* 			±È½ÏÒÆ¶¯Õì²âÂ¼ÏñÎÄ¼þ
+* 			ï¿½È½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½
 * @date 	2015/3
-* @param:	char * file_name£¬ ´ý±È½ÏµÄÎÄ¼þÃû
+* @param:	char * file_nameï¿½ï¿½ ï¿½ï¿½ï¿½È½Ïµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 * @return 	uint8 
-* @retval 	ÊÇµ±Ç°ÏµÍ³Â¼ÖÆµÄÎÄ¼þ-->1, ·ñÔò-->0
+* @retval 	ï¿½Çµï¿½Ç°ÏµÍ³Â¼ï¿½Æµï¿½ï¿½Ä¼ï¿½-->1, ï¿½ï¿½ï¿½ï¿½-->0
 */
 
 uint8 video_fs_cmp_alarm_record_file(char *file_name)
@@ -550,11 +550,11 @@ uint8 video_fs_cmp_alarm_record_file(char *file_name)
 
 /**
 * @brief  video_fs_cmp_video_record_file
-* 			±È½Ï¼Æ»®Â¼ÏñÎÄ¼þ
+* 			ï¿½È½Ï¼Æ»ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½
 * @date 	2015/3
-* @param:	char * file_name£¬ ´ý±È½ÏµÄÎÄ¼þÃû
+* @param:	char * file_nameï¿½ï¿½ ï¿½ï¿½ï¿½È½Ïµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 * @return 	uint8 
-* @retval 	ÊÇµ±Ç°ÏµÍ³Â¼ÖÆµÄÎÄ¼þ-->1, ·ñÔò-->0
+* @retval 	ï¿½Çµï¿½Ç°ÏµÍ³Â¼ï¿½Æµï¿½ï¿½Ä¼ï¿½-->1, ï¿½ï¿½ï¿½ï¿½-->0
 */
 
 uint8 video_fs_cmp_video_record_file(char *file_name)
@@ -595,12 +595,12 @@ uint8 video_fs_cmp_video_record_file(char *file_name)
 #if 0
 /**
 * @brief  video_fs_check_record_dir_name
-* 			¸ù¾ÝÄ¿Â¼ÃûºÍÀàÐÍ±È½Ïµ±Ç°Ä¿Â¼ÊÇ·ñÎª´æ·ÅÂ¼ÏñÄ¿Â¼
+* 			ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±È½Ïµï¿½Ç°Ä¿Â¼ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ä¿Â¼
 * @date 	2015/3
-* @param:	char * dir_name£¬ ´ý±È½ÏµÄÄ¿Â¼
-			unsigned short type£¬RECORD_REPLAY_TYPE ¼Æ»®Â¼ÏñÀÛÐÍ£¬·ñÔòÎªÒÆ¶¯Õì²âÀàÐÍ
+* @param:	char * dir_nameï¿½ï¿½ ï¿½ï¿½ï¿½È½Ïµï¿½Ä¿Â¼
+			unsigned short typeï¿½ï¿½RECORD_REPLAY_TYPE ï¿½Æ»ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 * @return 	uint8 
-* @retval 	ÊÇµ±Ç°ÏµÍ³Â¼ÖÆµÄÎÄ¼þ-->1, ·ñÔò-->0
+* @retval 	ï¿½Çµï¿½Ç°ÏµÍ³Â¼ï¿½Æµï¿½ï¿½Ä¼ï¿½-->1, ï¿½ï¿½ï¿½ï¿½-->0
 */
 
 uint8 video_fs_check_record_dir_name(char * dir_name, unsigned short type)
